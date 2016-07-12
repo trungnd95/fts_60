@@ -1,0 +1,26 @@
+// Place all the styles related to the StaticPages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "materialize";
+
+* {
+  margin: auto;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+
+// ===========================
+// ============ Header =======
+// ===========================
+
+div.header {
+  nav.teal {
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 10px;
+    padding-bottom: 5.5%;
+  }
+}

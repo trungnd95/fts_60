@@ -20,4 +20,27 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  page:
+    master:
+      sign: "Framgia@2016 | T&T Team"
+      front-end:
+        header:
+          logo: "Framgia FTS"
+        footer:
+          connect:
+            title: "Connect Us"
+            facebook: "Facebook"
+            twitter: "Twitter"
+            google: "Google+"
+          about-us:
+            title: "About Us"
+            content: "Lorem ipsum dolor sit amet,
+              consectetur adipisicing elit. Veritatis
+              autem deleniti ipsa numquam placeat?
+              Inventore accusamus fugit, iusto consequuntur
+              ab autem a quam dicta, nulla omnis rerum, deleniti aut mollitia!"
+    admin:
+    front-end:
+      home-page:
+        title: "Home Page"
+
