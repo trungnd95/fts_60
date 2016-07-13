@@ -23,6 +23,9 @@ en:
   page:
     master:
       sign: "Framgia@2016 | T&T Team"
+      admin:
+        header:
+          logo: "Admin FTS"
       front-end:
         header:
           logo: "Framgia FTS"
@@ -40,6 +43,12 @@ en:
               Inventore accusamus fugit, iusto consequuntur
               ab autem a quam dicta, nulla omnis rerum, deleniti aut mollitia!"
     admin:
+        menu:
+          users: "Users"
+          subjects: "Subjects"
+          questions: "Questions"
+          suggestions: "Suggestions"
+          exams: "Exams"
     front-end:
       home-page:
         title: "Home Page"
