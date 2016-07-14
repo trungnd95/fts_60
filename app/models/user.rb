@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
 
   scope :normal_user, ->{where role: Settings.role_user}
 
+  before_create :normal_user_role
+
   private
   def picture_size
     if avatar.size > 8.megabytes
@@ -37,5 +39,9 @@ class User < ActiveRecord::Base
         end
       end
     end
+  end
+
+  def normal_user_role
+    self.role =  Settings.role_user
   end
 end

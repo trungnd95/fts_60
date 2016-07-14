@@ -71,6 +71,7 @@ en:
 
     admin:
         action:
+          submit: "Submit"
           cancel: "Cancel"
           create: "Create"
           edit: "Edit"
@@ -92,6 +93,12 @@ en:
           exams: "Exams"
 
         subjects:
+          destroy:
+            fail: "Subject exist examinations. Not allow to delete this subject !"
+            success: "Subject was successfully deleted"
+          edit:
+            title: "Edit Subject"
+            success: "Subject was successfully edited !!!"
           email:
             subject: "New Subject Created"
             content: "Subject $%{subject} just created at "

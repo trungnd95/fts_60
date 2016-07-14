@@ -1,4 +1,6 @@
 class Subject < ActiveRecord::Base
+  acts_as_paranoid
+
   has_many :examinations, dependent: :destroy
   has_many :questions, dependent: :destroy
 

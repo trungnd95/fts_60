@@ -1,5 +1,5 @@
 <% @subjects.each_with_index do |subject, index|%>
-  <tr>
+  <tr class="row-<%= subject.id %>">
     <td><%= index + 1 %></td>
     <td><%= subject.name %></td>
     <td class="truncate"><%= subject.description %></td>
@@ -21,9 +21,9 @@
           </li>
           <li>
             <%= link_to([:admin, subject],
-              class: "btn-floating red darken-1 tooltipped",
+              class: "btn-floating red darken-1 tooltipped delete_subject",
               method: :delete, confirm: t("page.admin.action.confirm"),
-              data: {position: "top", delay: "50",
+              data: {position: "top", delay: "50", id: subject.id,
               tooltip: t("page.admin.action.delete")}) do %>
               <i class="material-icons">delete</i>
             <% end %>
