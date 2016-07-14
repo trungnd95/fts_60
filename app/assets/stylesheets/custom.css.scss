@@ -73,4 +73,27 @@ table {
 
 .truncate {
   display: table-cell;
+  width: 50px;
+  overflow: hidden;
 }
+
+.btn-default {
+  background-color: #fff;
+  color: #212121;
+}
+
+.btn-create-subject {
+  a, i {
+    width: 49%;
+  }
+}
+
+.card {
+  padding: 10px;
+  ul {
+    li {
+      margin-left: 10px;
+    }
+  }
+}
+

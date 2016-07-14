@@ -1,44 +1,43 @@
 <%= content_for :title do %>
-  <%= t "page.front-end.home-page.title" %>
+  <%= t "page.admin.subjects.title" %>
 <% end %>
-<%= content_for :subjects_page do %>
-  <div class="row">
-    <%= link_to("#", class: "btn-floating btn-large waves-effect waves-light red") do %>
-      <i class="material-icons">add</i>
-    <% end %>
-    <table class="striped centered highlight" id="table-subject">
-      <thead>
+
+<div class="row">
+  <%= link_to(new_admin_subject_path, class: "btn-floating btn-large waves-effect waves-light red tooltipped", data: {position: "top", delay: "50", tooltip: "Add new subject"}) do %>
+    <i class="material-icons">add</i>
+  <% end %>
+  <table class="striped centered highlight" id="table-subject">
+    <thead>
+      <tr>
+        <th data-field="stt">
+          <%= t "page.admin.subjects.tables.stt" %>
+        </th>
+        <th data-field="name">
+          <%= t "page.admin.subjects.tables.name" %>
+        </th>
+        <th data-field="description">
+          <%= t "page.admin.subjects.tables.description" %>
+        </th>
+        <th data-field="question_number">
+          <%= t "page.admin.subjects.tables.question_number" %>
+        </th>
+        <th data-field="duration">
+          <%= t "page.admin.subjects.tables.duration" %>
+        </th>
+        <th data-field="action">
+          <%= t "page.admin.subjects.tables.action" %>
+        </th>
+      </tr>
+    </thead>
+    <tbody class="subject_body_tables">
+      <% if @subjects.size > 0 %>
+        <%= render "subject" %>
+      <% else %>
         <tr>
-          <th data-field="stt">
-            <%= t "page.admin.subjects.tables.stt" %>
-          </th>
-          <th data-field="name">
-            <%= t "page.admin.subjects.tables.name" %>
-          </th>
-          <th data-field="description">
-            <%= t "page.admin.subjects.tables.description" %>
-          </th>
-          <th data-field="question_number">
-            <%= t "page.admin.subjects.tables.question_number" %>
-          </th>
-          <th data-field="duration">
-            <%= t "page.admin.subjects.tables.duration" %>
-          </th>
-          <th data-field="action">
-            <%= t "page.admin.subjects.tables.action" %>
-          </th>
+          <td colspan="5"><%= t "page.admin.subjects.tables.no-content" %></td>
         </tr>
-      </thead>
-      <tbody class="subject_body_tables">
-        <% if @subjects.size > 0 %>
-          <%= render "subject" %>
-        <% else %>
-          <tr>
-            <td colspan="5"><%= t "page.admin.subjects.tables.no-content" %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-    <%= paginate @subjects %>
-  </div>
-<% end %>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @subjects %>
+</div>

@@ -12,11 +12,22 @@
         </a>
         <ul>
           <li>
-            <a class="btn-floating red">
+            <%= link_to(edit_admin_subject_path(subject),
+              class: "btn-floating red sm tooltipped",
+              data: {position: "top", delay: "50",
+              tooltip: t("page.admin.action.edit")}) do %>
               <i class="material-icons yellow darken-1">mode_edit</i>
-            </a>
+            <% end %>
           </li>
-          <li><a class="btn-floating red darken-1"><i class="material-icons">delete</i></a></li>
+          <li>
+            <%= link_to([:admin, subject],
+              class: "btn-floating red darken-1 tooltipped",
+              method: :delete, confirm: t("page.admin.action.confirm"),
+              data: {position: "top", delay: "50",
+              tooltip: t("page.admin.action.delete")}) do %>
+              <i class="material-icons">delete</i>
+            <% end %>
+          </li>
         </ul>
       </div>
     </td>

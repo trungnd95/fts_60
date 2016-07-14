@@ -22,11 +22,10 @@
       </li>
     </ul>
   </div>
-  <div id="users" class="col s12"><%= yield :users_page %></div>
-  <div id="subjects" class="col s12"><%= yield :subjects_page %></div>
-  <div id="questions" class="col s12"><%= yield :questions_page %></div>
-  <div id="suggestions" class="col s12"><%= yield :suggestions_page %></div>
-  <div id="exams" class="col s12"><%= yield :exams_page %></div>
+  <hr />
+  <div class="content-page">
+    <%= yield %>
+  </div>
 </div>
 
 
