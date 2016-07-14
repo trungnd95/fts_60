@@ -1,0 +1,25 @@
+<% @subjects.each_with_index do |subject, index|%>
+  <tr>
+    <td><%= index + 1 %></td>
+    <td><%= subject.name %></td>
+    <td class="truncate"><%= subject.description %></td>
+    <td><%= subject.question_number %></td>
+    <td><%= subject.duration %></td>
+    <td class="action_subject">
+      <div class="fixed-action-btn horizontal click-to-toggle">
+        <a class="btn-floating btn-large blue">
+          <i class="large material-icons">settings</i>
+        </a>
+        <ul>
+          <li>
+            <a class="btn-floating red">
+              <i class="material-icons yellow darken-1">mode_edit</i>
+            </a>
+          </li>
+          <li><a class="btn-floating red darken-1"><i class="material-icons">delete</i></a></li>
+        </ul>
+      </div>
+    </td>
+  </tr>
+<% end %>
+

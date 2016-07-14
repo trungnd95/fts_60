@@ -78,12 +78,30 @@ en:
           instruction: "Did not receive unlock instructions?"
 
     admin:
+        no-content:
+          title: "no-content"
+          content: "No content was found !!!"
+        homepage:
+          title: "Admin Panel"
+        flash:
+          admin_only: "Only admin allowed!"
+          please_login: "Please login !!!"
         menu:
           users: "Users"
           subjects: "Subjects"
           questions: "Questions"
           suggestions: "Suggestions"
           exams: "Exams"
+        subjects:
+          title: "Subjects"
+          tables:
+            stt: "STT"
+            name: "Name"
+            description: "description"
+            question_number: "Question Number"
+            duration: "Duration"
+            no-content: "No subject was found !!!"
+            action: "Action"
     front-end:
       home-page:
         title: "Home Page"

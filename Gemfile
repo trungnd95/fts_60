@@ -12,6 +12,7 @@ gem "font-awesome-rails"
 gem "faker", "1.4.2"
 gem "config"
 gem "materialize-sass"
+gem "kaminari"
 # gem "byebug"
 # Use SCSS for stylesheets
 gem "sass-rails"
