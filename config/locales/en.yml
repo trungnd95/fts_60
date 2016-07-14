@@ -29,6 +29,11 @@ en:
       front-end:
         header:
           logo: "Framgia FTS"
+          signin: "Sign in"
+          signup: "Sign up"
+          logout: "Logout"
+          profile: "Profile"
+          setting: "Setting"
         footer:
           connect:
             title: "Connect Us"
@@ -42,6 +47,36 @@ en:
               autem deleniti ipsa numquam placeat?
               Inventore accusamus fugit, iusto consequuntur
               ab autem a quam dicta, nulla omnis rerum, deleniti aut mollitia!"
+    views:
+      devise:
+        confirmations:
+          new: "Resend confirmation instructions"
+          submit: "Resend confirmation instructions"
+        passwords:
+          edit: "Change your password"
+          new: "Forgot your password?"
+          submit: "Change my password"
+          password: "New password"
+          password_confirm: "Confirm new password"
+          news: "Send me reset password instructions"
+        registrations:
+          edit: "Edit"
+          new: "Sign up"
+          cancel: "Cancel my account"
+          unhappy: "Unhappy?"
+          button: "Cancel my account"
+          confirm: "Are you sure?"
+          submit: "Sign up"
+        sessions:
+          new: "Log in"
+          submit: "Log in"
+        shared:
+          login: "Log in"
+          signup: "Sign up"
+          password: "Forgot your password?"
+          confirm: "Did not receive confirmation instructions?"
+          instruction: "Did not receive unlock instructions?"
+
     admin:
         menu:
           users: "Users"
@@ -52,4 +87,3 @@ en:
     front-end:
       home-page:
         title: "Home Page"
-
