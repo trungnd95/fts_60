@@ -1,26 +1,32 @@
- <div class="row"
-    <div class="col s12">
-      <ul class="tabs">
-        <li class="tab col s2 ">
-          <a class="active" href="#users"><%= t "page.admin.menu.users" %></a>
-        </li>
-        <li class="tab col s2">
-          <a href="#subjects"><%= t "page.admin.menu.subjects" %></a>
-        </li>
-        <li class="tab col s2">
-          <a href="#questions"><%= t "page.admin.menu.questions" %></a>
-        </li>
-        <li class="tab col s2">
-          <a href="#suggestions"><%= t "page.admin.menu.suggestions" %></a>
-        </li>
-        <li class="tab col s2">
-          <a href="#exams"><%= t "page.admin.menu.exams" %></a>
-        </li>
-      </ul>
-    </div>
-    <div id="users" class="col s12"></div>
-    <div id="subjects" class="col s12"></div>
-    <div id="questions" class="col s12"></div>
-    <div id="suggestions" class="col s12"></div>
-    <div id="exams" class="col s12"></div>
+<div class="row">
+  <div class="col s12">
+    <ul class="tabs" >
+      <li class="tab col s2 menu_admin">
+        <a href="#users">
+          <%= t "page.admin.menu.users" %>
+        </a>
+      </li>
+      <li class="tab col s2 menu_admin">
+        <a href="#subjects" url="<%= admin_subjects_path %>" >
+          <%= t "page.admin.menu.subjects" %>
+        </a>
+      </li>
+      <li class="tab col s2 menu_admin">
+        <a href="#questions"><%= t "page.admin.menu.questions" %></a>
+      </li>
+      <li class="tab col s2 menu_admin">
+        <a href="#suggestions"><%= t "page.admin.menu.suggestions" %></a>
+      </li>
+      <li class="tab col s2 menu_admin">
+        <a href="#exams"><%= t "page.admin.menu.exams" %></a>
+      </li>
+    </ul>
   </div>
+  <div id="users" class="col s12"><%= yield :users_page %></div>
+  <div id="subjects" class="col s12"><%= yield :subjects_page %></div>
+  <div id="questions" class="col s12"><%= yield :questions_page %></div>
+  <div id="suggestions" class="col s12"><%= yield :suggestions_page %></div>
+  <div id="exams" class="col s12"><%= yield :exams_page %></div>
+</div>
+
+

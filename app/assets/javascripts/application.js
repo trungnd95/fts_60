@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require materialize-sprockets
+//= require dataTables/jquery.dataTables
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .

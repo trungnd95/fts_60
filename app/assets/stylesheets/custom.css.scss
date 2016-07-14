@@ -11,7 +11,9 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-
+div.container {
+  min-height: 420px !important;
+}
 // ===========================
 // ============ Header =======
 // ===========================
@@ -23,4 +25,52 @@ div.header {
     padding-top: 10px;
     padding-bottom: 5.5%;
   }
+}
+
+//=======================
+//====C Content ========
+//=======================
+td.action_subject {
+  position: relative;
+  div {
+    position: absolute !important;
+    top: 5px;
+    right: 0px;
+    a {
+      width: 40px !important;
+      height: 40px !important;
+      i {
+        line-height: 40px !important;
+      }
+    }
+    ul {
+      top: 10% !important;
+      right: 40px !important;
+      li {
+        a {
+          width: 30px !important;
+          height: 30px !important;
+          i {
+            line-height: 30px !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+table {
+  tbody {
+    tr {
+      height: 50px;
+    }
+  }
+}
+
+.waves-light {
+  top: 60px;
+}
+
+.truncate {
+  display: table-cell;
 }
