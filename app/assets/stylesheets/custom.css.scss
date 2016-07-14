@@ -97,3 +97,12 @@ table {
   }
 }
 
+.exit_alert {
+  color: #e0e0e0;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  &:hover {
+    cursor: pointer;
+  }
+}

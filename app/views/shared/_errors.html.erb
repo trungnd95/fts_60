@@ -1,5 +1,6 @@
 <% if object.errors.any? %>
   <div id="error_explanation" class="card">
+    <i class="fa fa-times exit_alert" aria-hidden="true" ></i>
     <div class="alert alert-danger">
       The form contains <%= pluralize(object.errors.count, "error") %>.
     </div>
