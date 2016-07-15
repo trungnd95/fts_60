@@ -31,6 +31,10 @@
           <li><%= link_to t("page.master.front-end.header.signin"),
             new_user_session_path %>
           </li>
+          <li>
+          <%= link_to t("page.master.admin.header.signin"),
+            user_facebook_omniauth_authorize_path %>
+          </li>
         <% else %>
           <li>
             <a class="dropdown-button" href="#!" data-activates="current_user">

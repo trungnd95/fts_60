@@ -26,6 +26,7 @@ en:
       admin:
         header:
           logo: "Admin FTS"
+          signin: "Facebook"
       front-end:
         header:
           logo: "Framgia FTS"
@@ -71,6 +72,8 @@ en:
         sessions:
           new: "Log in"
           submit: "Log in"
+          signin:
+            facebook: "Sign in with Facebook"
         shared:
           login: "Log in"
           signup: "Sign up"
