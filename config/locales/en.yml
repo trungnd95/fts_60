@@ -67,6 +67,7 @@ en:
           button: "Cancel my account"
           confirm: "Are you sure?"
           submit: "Sign up"
+          update: "Submit"
         sessions:
           new: "Log in"
           submit: "Log in"
@@ -76,6 +77,13 @@ en:
           password: "Forgot your password?"
           confirm: "Did not receive confirmation instructions?"
           instruction: "Did not receive unlock instructions?"
+          post: "Post"
+        users:
+          submit: "Submit"
+          update: "you updated successful"
+          title: "Edit User"
+        models:
+            user: "should be less than 5MB"
 
     admin:
         no-content:
@@ -92,6 +100,7 @@ en:
           questions: "Questions"
           suggestions: "Suggestions"
           exams: "Exams"
+
         subjects:
           title: "Subjects"
           tables:
@@ -102,6 +111,15 @@ en:
             duration: "Duration"
             no-content: "No subject was found !!!"
             action: "Action"
+
+        user:
+          name: "Name "
+          email: "Email"
+          password: "Password "
+          avatar: "Avartar "
+          edit: "Edit"
+          back: "Back"
+
     front-end:
       home-page:
         title: "Home Page"

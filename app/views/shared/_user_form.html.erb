@@ -1,0 +1,7 @@
+<%= form_for @user, html: {multipart: true} do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <%= f.submit t("page.views.devise.shared.post"), class: "btn btn-primary" %>
+  <span class="picture">
+    <%= f.file_field :avatar, accept: "image/jpeg,image/gif,image/png" %>
+  </span>
+<% end %>

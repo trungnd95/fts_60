@@ -1,14 +1,23 @@
 <div class="header">
-  <ul id="current_user" class="dropdown-content">
-    <li><a href="#!"><%= t "page.master.front-end.header.profile"%></a></li>
-    <li class="divider"></li>
-    <li><a href="#!">Setting</a></li>
-    <li class="divider"></li>
-    <li>
-      <%= link_to t("page.master.front-end.header.setting.logout"), destroy_user_session_path, method: :delete %>
-    </li>
-    <li class="divider"></li>
-  </ul>
+  <% if user_signed_in? %>
+    <ul id="current_user" class="dropdown-content">
+      <li>
+        <%= link_to t("page.master.front-end.header.profile"),
+          user_path(current_user) %>
+      </li>
+      <li class="divider"></li>
+      <li>
+        <%= link_to t("page.master.front-end.header.setting"),
+          edit_user_path(current_user) %>
+      </li>
+      <li class="divider"></li>
+      <li>
+        <%= link_to t("page.master.front-end.header.setting.logout"),
+          destroy_user_session_path, method: :delete %>
+      </li>
+      <li class="divider"></li>
+    </ul>
+  <% end %>
   <nav class="teal">
     <div class="nav-wrapper">
       <a href="#!" class="brand-logo">
@@ -16,9 +25,11 @@
       </a>
       <ul class="right hide-on-med-and-down">
         <% unless user_signed_in? %>
-          <li><%= link_to t("page.master.front-end.header.signout"),new_user_registration_path %>
+          <li><%= link_to t("page.master.front-end.header.signout"),
+            new_user_registration_path %>
           </li>
-          <li><%= link_to t("page.master.front-end.header.signin"),new_user_session_path %>
+          <li><%= link_to t("page.master.front-end.header.signin"),
+            new_user_session_path %>
           </li>
         <% else %>
           <li>

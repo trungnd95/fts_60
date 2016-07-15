@@ -5,5 +5,6 @@ Rails.application.routes.draw do
     resources :subjects
   end
   devise_for :users, controllers: {registrations: "users/registrations"}
+  resources :users, only: [:show, :edit, :update]
 
 end

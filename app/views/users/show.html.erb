@@ -1,0 +1,18 @@
+<div class="container-fluid">
+  <div class="row">
+    <p><%= t "admin.user.name" %><%= @user.name %></p>
+    <p><%= t "admin.user.email" %><%= @user.email %></p>
+    <p><%= t "admin.user.avatar" %><%= @user.avatar %></p>
+    <br>
+    <% if @user.avatar? %>
+      <%= image_tag(@user.avatar, size: Settings.users.size_ava) %>
+    <% else %>
+      <%= image_tag Settings.users.url_ava, size: Settings.users.size_ava %>
+    <% end %>
+  </div>
+  <br>
+  <%= link_to t("admin.user.edit"), edit_user_path,
+    class: "btn btn-primary" %> |
+  <%= link_to t("admin.user.back"), admin_users_path,
+    class: "btn btn-primary" %>
+</div>
