@@ -1,8 +1,9 @@
 class ApplicationController < ActionController::Base
-  before_action :configure_permitted_parameters, if: :devise_controller?
-
   protect_from_forgery with: :exception
+
   before_action :authenticate_user!
+  before_filter :configure_permitted_parameters, if: :devise_controller?
+
   include CanCan::ControllerAdditions
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, alert: exception.message
@@ -14,6 +15,7 @@ class ApplicationController < ActionController::Base
       u.permit :name, :email, :password, :password_confirmation, :remember_me
     end
   end
+
   def check_if_admin
     if user_signed_in?
       unless current_user.admin?
