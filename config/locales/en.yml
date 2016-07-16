@@ -92,6 +92,9 @@ en:
           exams: "Exams"
 
         subjects:
+          email:
+            subject: "New Subject Created"
+            content: "Subject $%{subject} just created at "
           title: "Manage Subject"
           create:
             title: "Create new subject"
@@ -105,7 +108,6 @@ en:
             duration: "Duration"
             no-content: "No subject was found !!!"
             action: "Action"
-
         user:
           name: "Name "
           email: "Email"

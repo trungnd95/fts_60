@@ -27,6 +27,7 @@ class Admin::SubjectsController < ApplicationController
     @subject = Subject.new subject_params
     respond_to do |format|
       if @subject.save
+        UserNotificationService.new(User.normal_user).notify(@subject)
         format.html do
           flash[:success] = t "page.admin.subjects.create.success"
           redirect_to admin_subjects_path
@@ -44,9 +45,5 @@ class Admin::SubjectsController < ApplicationController
   def subject_params
     params.require(:subject).permit :name, :description, :question_number,
       :duration
-  end
-
-  def load_subject
-    @subject = Subject.find_by id: params[:id]
   end
 end
