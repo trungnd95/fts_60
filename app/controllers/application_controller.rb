@@ -20,11 +20,11 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       unless current_user.admin?
         flash[:warning] = t "page.admin.flash.admin_only"
-        redirect :back
+        redirect_to root_path
       end
     else
       flash[:danger] = t "page.admin.flash.please_login"
-      redirect :back
+      redirect_to root_path
     end
   end
 end
