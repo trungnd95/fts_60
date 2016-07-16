@@ -1,0 +1,33 @@
+<%= form_for [:admin, @subject] do |f| %>
+  <%= render "shared/errors", object: f.object %>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.text_field :name, class: "form-control name_category" %>
+      <%= f.label :name, class: "label-control" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.text_area :description, class: "materialize-textarea" %>
+      <%= f.label :description, class: "label-control" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.number_field :question_number %>
+      <%= f.label :question_number, class: "label-control" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.number_field :duration %>
+      <%= f.label :duration, class: "label-control" %>
+    </div>
+  </div>
+  <div class="row btn-create-subject">
+    <a class="waves-effect btn btn-default" onclick="window.history.back()">
+      <%= t "page.admin.action.cancel" %>
+    </a>
+    <%= f.submit t("page.admin.action.submit"), class: "submit_category waves-effect btn blue"%>
+  </div>
+<% end %>

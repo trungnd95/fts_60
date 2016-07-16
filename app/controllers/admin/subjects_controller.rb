@@ -41,6 +41,51 @@ class Admin::SubjectsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    respond_to do |format|
+      if @subject.update subject_params
+        format.html do
+          flash[:success] = t "page.admin.subjects.edit.success"
+          redirect_to admin_subjects_path
+        end
+        format.json{render json: @subject , status: :ok}
+      else
+        format.html do
+          flash[:danger] = t "page.admin.subjects.edit.fail"
+          render action: :edit
+        end
+        format.json{render json: @subject.errors, status: :unprocessable_entity}
+      end
+    end
+  end
+
+  def destroy
+    respond_to do |format|
+      if @subject.examinations.count > 0
+        @message = t "page.admin.subjects.destroy.fail"
+        format.html do
+          flash[:warning] =  @message
+          redirect_to :back
+        end
+        format.json do
+          render json: {warning: {message: @message}}
+        end
+      else
+        @subject.destroy
+        format.html do
+          redirect_to admin_subjects_path,
+           success: t("page.admin.subjects.destroy.success")
+        end
+        format.json do
+          render json: {id: params[:id], status: :ok}
+        end
+      end
+    end
+  end
+
   private
   def subject_params
     params.require(:subject).permit :name, :description, :question_number,

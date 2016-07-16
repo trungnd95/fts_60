@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160715080546) do
+ActiveRecord::Schema.define(version: 20160716092246) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "target_id"
@@ -76,7 +76,10 @@ ActiveRecord::Schema.define(version: 20160715080546) do
     t.integer  "duration"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.time     "deleted_at"
   end
+
+  add_index "subjects", ["deleted_at"], name: "index_subjects_on_deleted_at"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
