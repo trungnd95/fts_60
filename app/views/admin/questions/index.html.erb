@@ -1,0 +1,57 @@
+<%= content_for :title do %>
+  <%= t "page.admin.questions.title" %>
+<% end %>
+
+<%= content_for :page_title do %>
+  <%= t "page.admin.questions.title" %>
+<% end %>
+
+<div class="row">
+  <div class="screen_options">
+      <i class="small material-icons full_screen">stay_primary_landscape</i> |
+      <i class="small material-icons half_screen">web</i>
+  </div>
+  <div class="col m12 layout_options">
+    <%= link_to(new_admin_question_path,
+      class: "btn-floating btn-large waves-effect waves-light red tooltipped",
+      data: {position: "top", delay: "50",
+      tooltip: t("page.admin.questions.add.new")}) do %>
+      <i class="material-icons">add</i>
+    <% end %>
+    <table class="striped centered highlight" id="table-question">
+      <thead>
+        <tr>
+          <th data-field="stt">
+            <%= t "page.admin.questions.tables.stt" %>
+          </th>
+          <th data-field="content">
+            <%= t "page.admin.questions.tables.content" %>
+          </th>
+          <th data-field="type">
+            <%= t "page.admin.questions.tables.type" %>
+          </th>
+          <th data-field="subject">
+            <%= t "page.admin.questions.tables.subject_name" %>
+          </th>
+          <th data-field="action">
+            <%= t "page.admin.questions.question.action" %>
+          </th>
+        </tr>
+      </thead>
+      <tbody class="subject_body_tables">
+        <% if @questions.size > 0 %>
+          <%= render @questions %>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @questions %>
+  </div>
+  <div class="col m3 hide answers_tab">
+      <h5 class="center-align"><%= t "page.admin.questions.answers.tab.title" %></h5>
+      <div class="divider"></div>
+      <div>
+        <ul id="list-answers">
+        </ul>
+      </div>
+  </div>
+</div>
