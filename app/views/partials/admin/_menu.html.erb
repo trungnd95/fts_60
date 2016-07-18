@@ -23,6 +23,15 @@
     </ul>
   </div>
   <hr />
+  <div class="row">
+    <div class="col m10 offset-m1">
+      <h4 class="center-align"><%= yield :page_title %></h4>
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+    </div>
+  </div>
+  <hr />
   <div class="content-page">
     <%= yield %>
   </div>

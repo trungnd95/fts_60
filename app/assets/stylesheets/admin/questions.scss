@@ -1,0 +1,27 @@
+// Place all the styles related to the Admin/Questions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.screen_options {
+  float: right;
+  margin-top: 10px;
+  i {
+    &:hover {
+      cursor: pointer;
+      color: #64b5f6;
+    }
+  }
+}
+
+.m9 {
+  margin-top: 45px;
+}
+
+.answers_tab {
+  margin-top: 130px;
+}
+
+ul#list-answers {
+  li {
+    opacity: 0;
+  }
+}

@@ -91,7 +91,20 @@ en:
           questions: "Questions"
           suggestions: "Suggestions"
           exams: "Exams"
-
+        questions:
+          answers:
+            tab:
+              title: "Answers"
+          title: "Manage Questions"
+          add:
+            new: "Add new question"
+          table:
+            stt: "STT"
+            content: "Content"
+            type: "Type"
+            subject: "Subject"
+            action: "Action"
+            no-content: "No question was found !"
         subjects:
           destroy:
             fail: "Subject exist examinations. Not allow to delete this subject !"

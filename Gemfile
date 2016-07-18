@@ -35,7 +35,7 @@ gem "jquery-ui-rails"
 gem "turbolinks"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem "jbuilder", "~> 2.0"
-gem "active_model_serializers", github: "rails-api/active_model_serializers"
+gem "active_model_serializers", "0.9.3"
 gem "devise"
 gem "cancancan", "~> 1.10"
 gem "omniauth-facebook"
