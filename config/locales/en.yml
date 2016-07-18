@@ -93,6 +93,9 @@ en:
           suggestions: "Suggestions"
           exams: "Exams"
         questions:
+          destroy:
+            success: "Question was successfully deleted !"
+            fail: "Question exist in examinations. ! Not allow to delete!"
           create:
             answer_length: "Answers at least 2 records"
             answer_correct: "Please choose correct answer"
@@ -110,6 +113,7 @@ en:
           select:
             default: "Choose a option"
           answers:
+            answer: "Answer"
             validate:
               number_answers: "At least two answers!"
               number_correct: "Please choose correct for answer"

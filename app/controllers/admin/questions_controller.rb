@@ -80,6 +80,30 @@ class Admin::QuestionsController < ApplicationController
     end
   end
 
+  def destroy
+    respond_to do |format|
+      if @question.results.count > 0
+        @message = t "page.admin.questions.destroy.fail"
+        format.html do
+          flash[:warning] =  @message
+          redirect_to :back
+        end
+        format.json do
+          render json: {warning: {message: @message}}
+        end
+      else
+        @question.destroy
+        format.html do
+          redirect_to admin_questions_path,
+            success: t("page.admin.questions.destroy.success")
+        end
+        format.json do
+          render json: {id: params[:id], status: :ok}
+        end
+      end
+    end
+  end
+
   private
   def question_params
     params.require(:question).permit :id, :content, :question_status,

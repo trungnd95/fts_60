@@ -51,8 +51,16 @@
     <h5 class="center-align"><%= t "page.admin.questions.answers.tab.title" %></h5>
     <div class="divider"></div>
     <div>
-      <ul id="list-answers">
-      </ul>
+      <% @questions.each_with_index  do |question, index| %>
+        <h6>
+          <strong><%= t "page.admin.questions.answers.answer" %><%= index %></strong>
+        </h6>
+        <ul id="list-answers-<%= question.id %>" class="center-align">
+          <% question.answers.each do |answer| %>
+            <li class="center-align" style="opacity: 0"><%= answer.content %></li>
+          <% end %>
+        </ul>
+      <% end %>
     </div>
   </div>
 </div>

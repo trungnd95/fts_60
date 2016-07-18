@@ -1,6 +1,10 @@
 <%= content_tag_for(:tr, question, class: "row_question") do %>
   <td class="right-align"><%= question.id %></td>
-  <td><%= question.content %></td>
+  <td>
+    <a href="#!" onclick="Materialize.showStaggeredList('#list-answers-<%= question.id %>')">
+      <%= question.content %>
+    </a>
+  </td>
   <td><%= question.question_type %></td>
   <td><%= question.subject.name %></td>
   <td class="action_subject">
