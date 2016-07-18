@@ -136,6 +136,8 @@ en:
           avatar: "Avartar "
           edit: "Edit"
           back: "Back"
+          success: "you deleted successful"
+          default: "Error"
 
     front-end:
       home-page:
