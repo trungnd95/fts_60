@@ -39,14 +39,13 @@
         </tr>
       </thead>
       <tbody class="subject_body_tables">
-        <% @questions.each do |question| %>
-          <%= render question, subjects: @subjects %>
+        <% if @questions.size > 0 %>
+          <%= render @questions %>
         <% end %>
       </tbody>
     </table>
     <%= paginate @questions %>
   </div>
-
   <div class="col m3 hide answers_tab">
     <h5 class="center-align"><%= t "page.admin.questions.answers.tab.title" %></h5>
     <div class="divider"></div>
@@ -65,20 +64,17 @@
   </div>
 </div>
 
+<!-- Modal Structure -->
 <div id="add_new_question" class="modal">
   <div class="modal-heading">
     <h5 class="center-align"><%= t "page.admin.questions.add.new" %></h5>
     <div class="divider"></div>
   </div>
-  <%= form_for([:admin, @question]) do |f| %>
-    <div class="modal-heading">
-      <h5 class="center-align"><%= t "page.admin.questions.add.new" %></h5>
-      <div class="divider"></div>
-    </div>
+  <%= form_for([:admin, @question], class: "admin_new_question") do |f| %>
     <div class="modal-content">
       <div class="row">
         <div class="input-field col s12">
-          <%= f.hidden_field :question_status, value: 1 %>
+          <%= f.hidden_field :question_status, value: :accepted %>
         </div>
       </div>
       <div class="row">

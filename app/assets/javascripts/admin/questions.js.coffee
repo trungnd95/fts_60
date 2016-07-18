@@ -17,18 +17,19 @@ $(document).ready ->
     answer_text += '<textarea class="materialize-textarea"'
     answer_text += 'name="question[answers_attributes][0][content]"'
     answer_text += 'id="question_answers_attributes_0_content"></textarea></div>'
-    if question_type == '2'
+    if question_type == 'text'
       $('.text_question').removeClass('hide')
       $('.choise_question').addClass('hide')
       $('.answer_fields').append(answer_text)
-    if question_type == '0' || question_type == '1'
+    if question_type == 'single_choise' || question_type == 'multiple_choise'
       $('.text_question').remove()
       $('.choise_question').removeClass('hide')
       $('.add_fields').show()
-    if question_type == '0' && question_type != '1'
+    if question_type == 'single_choise' && question_type != 'multiple_choise'
       $('#answer_field input[type=checkbox]').on 'change', ->
         $('#answer_field input[type=checkbox]').not(this).prop('checked',false)
-  $('form.new_question').on 'submit', (event) ->
+        $('#answer_field input[type=checkbox]').prop('checked',true)
+  $('form.admin_new_question').on 'submit', (event) ->
     event.preventDefault()
     url = $(this).attr('action')
     data  = $(this).serialize()

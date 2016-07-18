@@ -1,0 +1,82 @@
+<%= content_for :title do %>
+  <%= t "page.front-end.questions.new.title" %>
+<% end %>
+
+<%= content_for :page_title do %>
+  <%= t "page.front-end.questions.new.title" %>
+<% end %>
+<div class="row">
+  <div class="col m10 offset-m1 card-panel">
+    <%= form_for @question do |f| %>
+      <%= render "shared/errors", object: f.object %>
+      <div class="row">
+        <div class="input-field col s12">
+          <%= f.hidden_field :question_status, value: :pending %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <div class="col m2 center-align">
+            <i class="large material-icons prefix">library_books</i>
+          </div>
+          <div class="col m10 push-m2">
+            <%= f.text_field :content %>
+            <%= f.label :content %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <div class="col m2 center-align">
+            <i class="large material-icons prefix">subject</i>
+          </div>
+          <div class="col m10 push-m2">
+            <%= f.select :subject_id,
+              @subjects.collect {|subject| [subject.name, subject.id ]},
+              {}, {class: "form-control"} %>
+            <%= f.label :subject_id %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <div class="col m2 center-align">
+            <i class="large material-icons prefix">view_week</i>
+          </div>
+          <div class="col m10 push-m2">
+            <%= f.select :question_type,
+              options_for_select(Question.question_types.keys) %>
+            <%= f.label :question_type %>
+          </div>
+        </div>
+      </div>
+      <div id ="answer_field">
+        <div class="col m10 offset-m1">
+          <h5 class="center-align">
+            <%= t "page.admin.questions.answers.answer" %>
+          </h5>
+        </div>
+        <%= f.fields_for :answers do |answer_builder| %>
+          <p>
+            <%= render "answer_fields", f: answer_builder %>
+          </p>
+        <% end %>
+        <%= link_to_add_fields t("page.admin.questions.add_answer"),
+          f, :answers %>
+      </div>
+      <div class="row">
+        <div class="col m11 offset-m1 suggest_question">
+          <button class="btn waves-effect waves-light btn-default"
+            onclick="window.history.back()">
+            <%= t "page.admin.action.cancel" %>
+          </button>
+          <button class="btn waves-effect waves-light blue" type="submit" name="action">
+            <%= t "page.admin.action.submit" %>
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+

@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(version: 20160718073415) do
     t.datetime "updated_at",                          null: false
     t.string   "provider"
     t.string   "uid"
+    t.time     "deteled_at"
     t.time     "deleted_at"
   end
 
