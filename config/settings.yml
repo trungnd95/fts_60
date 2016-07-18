@@ -11,3 +11,7 @@ users:
   size_ava: "100x100"
   url_ava: "/assets/user_3.png"
   pic_size: 5
+question_type:
+  single_choise: 1
+  multiple_choise: 2
+  text: 3
