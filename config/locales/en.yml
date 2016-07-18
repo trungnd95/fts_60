@@ -14,6 +14,7 @@ en:
           logout: "Logout"
           profile: "Profile"
           setting: "Setting"
+          exam: "Exam"
         footer:
           connect:
             title: "Connect Us"
@@ -68,6 +69,21 @@ en:
           title: "Edit User"
         models:
             user: "should be less than 5MB"
+        examination:
+          title: "Title"
+          controller:
+            create: "you created successfully"
+          view:
+            index:
+              create: "Create"
+              start: "Start"
+              stt: "STT"
+              subject: "Subject"
+              status: "Status"
+              duration: "Duration"
+              question_number: "Question_number"
+              spent_time: "Spent_time"
+              score: "Score"
 
     admin:
         action:

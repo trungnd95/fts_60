@@ -10,3 +10,16 @@
   email: "user#{u+1}@gmail.com",
   password: "123456"
 end
+
+5.times do |u|
+  Subject.create! name: "Git" + (u+1).to_s,
+  description: "abc",
+  question_number: 20,
+  duration: 30
+end
+
+5.times do |u|
+  Examination.create! status: 1,
+  user_id: 1,
+  subject_id: (u+1)
+end

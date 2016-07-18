@@ -2,6 +2,8 @@ default_email: "ndt8895@gmail.com"
 role_admin: 0
 role_user: 1
 per_page: 5
+number_questions_per_examination: 20
+default_spent_time: 0
 admin:
   users:
     size: "70x70"
