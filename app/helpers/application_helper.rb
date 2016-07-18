@@ -8,4 +8,12 @@ module ApplicationHelper
     link_to(name, "#", class: "add_fields btn-floating btn-large
       waves-effect waves-light red", data: {id: id, fields: fields.gsub("\n", "")})
   end
+
+  def spend_time exam
+    time = exam.subject.duration * Settings.MINUTE
+    if exam.end_time - exam.start_time <= exam.subject.duration * Settings.MINUTE
+      time = exam.end_time - exam.start_time
+    end
+    Time.at(time).utc.strftime Settings.TIME_FORMAT
+  end
 end

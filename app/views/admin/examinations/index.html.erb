@@ -1,0 +1,72 @@
+<%= content_for :title do %>
+  <%= t "page.admin.exams.title" %>
+<% end %>
+
+<%= content_for :page_title do %>
+  <%= t "page.admin.exams.title" %>
+<% end %>
+
+<div class="row">
+  <div class="col m12 layout_options">
+    <table class="striped centered highlight" id="table-question">
+      <thead>
+        <tr>
+          <th data-field="time_create">
+            <%= t "page.admin.exams.tables.time_create" %>
+          </th>
+          <th data-field="subject">
+            <%= t "page.admin.exams.tables.subject" %>
+          </th>
+          <th data-field="status">
+            <%= t "page.admin.exams.tables.status" %>
+          </th>
+          <th data-field="question_number">
+            <%= t "page.front-end.exams.tables.question_number" %>
+          </th>
+          <th data-field="duration">
+            <%= t "page.admin.exams.tables.duration" %>
+          </th>
+          <th data-field="spent_time">
+            <%= t "page.front-end.exams.tables.spent_time" %>
+          </th>
+          <th data-field="score">
+            <%= t "page.front-end.exams.tables.core" %>
+          </th>
+          <th data-field="action">
+            <%= t "page.front-end.exams.tables.action" %>
+          </th>
+        </tr>
+      </thead>
+      <tbody class="subject_body_tables">
+        <% @exams.each do |exam| %>
+          <tr>
+            <td><%= exam.created_at.strftime t "time.date" %></td>
+            <td><%= exam.subject.name %></td>
+            <td><%= exam.status %></td>
+            <td><%= exam.subject.question_number %></td>
+            <td><%= exam.subject.duration %></td>
+            <td><%= exam.start? ? Settings.default_time : spend_time(exam) %></td>
+            <td>
+              <% if exam.checked? %>
+                <%= exam.results.is_corrects.count %> /
+                <%= exam.subject.question_number %>
+              <% else %>
+                ---
+              <% end %>
+            </td>
+            <td>
+              <% if exam.uncheck? %>
+                <a class="waves-effect waves-light green-text"
+                  data-id="<%= exam.id %>" data-status="checked">
+                  <i class="fa fa-check" aria-hidden="true"></i>
+                  <%= t "page.admin.action.check" %>
+                </a>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @exams %>
+  </div>
+</div>

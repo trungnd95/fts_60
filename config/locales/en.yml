@@ -1,4 +1,6 @@
 en:
+  time:
+    date: "%d/%m/%Y"
   page:
     master:
       sign: "Framgia@2016 | T&T Team"
@@ -86,103 +88,114 @@ en:
               score: "Score"
 
     admin:
-        action:
-          accepted: "Accepted"
-          reject: "Reject"
-          submit: "Submit"
-          cancel: "Cancel"
-          create: "Create"
-          edit: "Edit"
-          delete: "Delete"
-          confirm: "Confirm"
-          remove: "Remove"
-        no-content:
-          title: "no-content"
-          content: "No content was found !!!"
-        homepage:
-          title: "Admin Panel"
-        flash:
-          admin_only: "Only admin allowed!"
-          please_login: "Please login !!!"
-        menu:
-          users: "Users"
-          subjects: "Subjects"
-          questions: "Questions"
-          suggestions: "Suggestions"
-          exams: "Exams"
-        questions:
-          update:
-            success: "Question was successfully updated !"
-          destroy:
-            success: "Question was successfully deleted !"
-            fail: "Question exist in examinations. ! Not allow to delete!"
-          create:
-            answer_length: "Answers at least 2 records"
-            answer_correct: "Please choose correct answer"
-            question_type: "Choose a question type"
-          answers:
-            answer: "Answer"
-          edit:
-            title: "Edit Question"
-            success: "Question was successfully edited!"
-            fail: "Something went wrong !"
-          add:
-            success: "Question was successfully added !!"
-            danger: "Some thing went wrong!!"
-            new: "Add new question"
-          add_answer: "Add answer"
-          select:
-            default: "Choose a option"
-          answers:
-            answer: "Answer"
-            validate:
-              number_answers: "At least two answers!"
-              number_correct: "Please choose correct for answer"
-            answer: "Answer"
-            tab:
-              title: "Answers"
-          title: "Manage Questions"
-          suggest: "Manage Suggest Question"
-          table:
-            stt: "STT"
-            content: "Content"
-            type: "Type"
-            subject: "Subject"
-            action: "Action"
-            no-content: "No question was found !"
-        subjects:
-          destroy:
-            fail: "Subject exist examinations. Not allow to delete this subject !"
-            success: "Subject was successfully deleted"
-          edit:
-            title: "Edit Subject"
-            success: "Subject was successfully edited !!!"
-          email:
-            subject: "New Subject Created"
-            content: "Subject $%{subject} just created at "
-          title: "Manage Subject"
-          create:
-            title: "Create new subject"
-            success: "Subject was successfully created !!!"
-          title: "Subjects"
-          tables:
-            stt: "STT"
-            name: "Name"
-            description: "description"
-            question_number: "Question Number"
-            duration: "Duration"
-            no-content: "No subject was found !!!"
-            action: "Action"
-        user:
-          title: "Manage All User"
-          name: "Name "
-          email: "Email"
-          password: "Password "
-          avatar: "Avartar "
-          edit: "Edit"
-          back: "Back"
-          success: "you deleted successful"
-          default: "Error"
+      exams:
+        title: "Manage Exams"
+        tables:
+          time_create: "Create At"
+          subject: "Subject"
+          status: "Status"
+          duration: "Duration"
+          spent_time: "Spent Time"
+          question_number: "Question Number"
+          action: "Action"
+      action:
+        check: "Check"
+        accepted: "Accepted"
+        reject: "Reject"
+        submit: "Submit"
+        cancel: "Cancel"
+        create: "Create"
+        edit: "Edit"
+        delete: "Delete"
+        confirm: "Confirm"
+        remove: "Remove"
+      no-content:
+        title: "no-content"
+        content: "No content was found !!!"
+      homepage:
+        title: "Admin Panel"
+      flash:
+        admin_only: "Only admin allowed!"
+        please_login: "Please login !!!"
+      menu:
+        users: "Users"
+        subjects: "Subjects"
+        questions: "Questions"
+        suggestions: "Suggestions"
+        exams: "Exams"
+      questions:
+        update:
+          success: "Question was successfully updated !"
+        destroy:
+          success: "Question was successfully deleted !"
+          fail: "Question exist in examinations. ! Not allow to delete!"
+        create:
+          answer_length: "Answers at least 2 records"
+          answer_correct: "Please choose correct answer"
+          question_type: "Choose a question type"
+        answers:
+          answer: "Answer"
+        edit:
+          title: "Edit Question"
+          success: "Question was successfully edited!"
+          fail: "Something went wrong !"
+        add:
+          success: "Question was successfully added !!"
+          danger: "Some thing went wrong!!"
+          new: "Add new question"
+        add_answer: "Add answer"
+        select:
+          default: "Choose a option"
+        answers:
+          answer: "Answer"
+          validate:
+            number_answers: "At least two answers!"
+            number_correct: "Please choose correct for answer"
+          answer: "Answer"
+          tab:
+            title: "Answers"
+        title: "Manage Questions"
+        suggest: "Manage Suggest Question"
+        table:
+          stt: "No."
+          content: "Content"
+          type: "Type"
+          subject: "Subject"
+          action: "Action"
+          no-content: "No question was found !"
+      subjects:
+        destroy:
+          fail: "Subject exist examinations. Not allow to delete this subject !"
+          success: "Subject was successfully deleted"
+        edit:
+          title: "Edit Subject"
+          success: "Subject was successfully edited !!!"
+        email:
+          subject: "New Subject Created"
+          content: "Subject $%{subject} just created at "
+        title: "Manage Subject"
+        create:
+          title: "Create new subject"
+          success: "Subject was successfully created !!!"
+        title: "Subjects"
+        tables:
+          stt: "No."
+          name: "Name"
+          description: "description"
+          question_number: "Question Number"
+          duration: "Duration"
+          no-content: "No subject was found !!!"
+          action: "Action"
+      user:
+        title: "Manage All User"
+        name: "Name "
+        email: "Email"
+        password: "Password "
+        avatar: "Avartar "
+        edit: "Edit"
+        back: "Back"
+        success: "you deleted successful"
+        default: "Error"
 
     front-end:
       home-page:
@@ -193,7 +206,7 @@ en:
         new:
           title: "Add New Suggest Question"
         tables:
-          stt: "STT"
+          stt: "No."
           content: "Content"
           type: "Type"
           subject_name: "Subject Name"
