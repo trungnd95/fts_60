@@ -1,6 +1,3 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).ready ->
   $('.full_screen').on 'click', ->
     $('.layout_options').removeClass('m9')
@@ -12,22 +9,23 @@ $(document).ready ->
     $('.answers_tab').removeClass('hide')
   $('.row_question').on 'click', ->
     Materialize.showStaggeredList('#list-answers')
-  $('.modal-trigger').leanModal()
-  $('#question_question_type').on 'change', ->
+  $(document).on 'ready page:change', ->
+    $('.modal-trigger').leanModal()
+  $('select[name="question[question_type]"]').on 'change', ->
     question_type =  $(this).val()
     answer_text = '<div class="text_question">'
     answer_text += '<textarea class="materialize-textarea"'
     answer_text += 'name="question[answers_attributes][0][content]"'
     answer_text += 'id="question_answers_attributes_0_content"></textarea></div>'
-    if question_type == '3'
+    if question_type == '2'
       $('.text_question').removeClass('hide')
       $('.choise_question').addClass('hide')
-      $('#answer_fields').append(answer_text)
-    if question_type == '1' || question_type == '2'
+      $('.answer_fields').append(answer_text)
+    if question_type == '0' || question_type == '1'
       $('.text_question').remove()
       $('.choise_question').removeClass('hide')
       $('.add_fields').show()
-    if question_type == '1' && question_type != '2'
+    if question_type == '0' && question_type != '1'
       $('#answer_field input[type=checkbox]').on 'change', ->
         $('#answer_field input[type=checkbox]').not(this).prop('checked',false)
   $('form.new_question').on 'submit', (event) ->
@@ -52,3 +50,24 @@ $(document).ready ->
           str += '\n'
         alert(str)
 
+  $('form.edit_question').on 'submit', (event) ->
+    event.preventDefault()
+    url = $(this).attr('action')
+    data  = $(this).serialize()
+    console.log(JSON.stringify(data))
+    $.ajax
+      url: url
+      type: 'PATCH'
+      cache: false
+      data: data
+      dataType: 'JSON'
+      success: (result) ->
+        $('#question_' + result.question_id).replaceWith(result.content)
+      error: (err) ->
+        str = ''
+        $.each jQuery.parseJSON(err.responseText), (i, item) ->
+          str += i
+          str += ':  '
+          str += item
+          str += '\n'
+        alert(str)

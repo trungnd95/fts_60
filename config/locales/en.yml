@@ -96,6 +96,13 @@ en:
           create:
             answer_length: "Answers at least 2 records"
             answer_correct: "Please choose correct answer"
+            question_type: "Choose a question type"
+          answers:
+            answer: "Answer"
+          edit:
+            title: "Edit Question"
+            success: "Question was successfully edited!"
+            fail: "Something went wrong !"
           add:
             success: "Question was successfully added !!"
             danger: "Some thing went wrong!!"
