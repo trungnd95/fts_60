@@ -129,6 +129,7 @@ en:
             no-content: "No subject was found !!!"
             action: "Action"
         user:
+          title: "Manage All User"
           name: "Name "
           email: "Email"
           password: "Password "

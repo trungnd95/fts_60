@@ -1,7 +1,9 @@
 class User < ActiveRecord::Base
+  acts_as_paranoid
+
   devise :database_authenticatable, :registerable,
-    :recoverable, :rememberable, :trackable, :validatable
-  devise :omniauthable, omniauth_providers: [:facebook]
+    :recoverable, :rememberable, :trackable, :validatable,
+    :omniauthable, omniauth_providers: [:facebook]
 
   enum role: [:admin, :user]
   has_many :examinations, dependent: :destroy
