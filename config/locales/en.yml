@@ -77,6 +77,7 @@ en:
           edit: "Edit"
           delete: "Delete"
           confirm: "Confirm"
+          remove: "Remove"
         no-content:
           title: "no-content"
           content: "No content was found !!!"
@@ -92,7 +93,20 @@ en:
           suggestions: "Suggestions"
           exams: "Exams"
         questions:
+          create:
+            answer_length: "Answers at least 2 records"
+            answer_correct: "Please choose correct answer"
+          add:
+            success: "Question was successfully added !!"
+            danger: "Some thing went wrong!!"
+          add_answer: "Add answer"
+          select:
+            default: "Choose a option"
           answers:
+            validate:
+              number_answers: "At least two answers!"
+              number_correct: "Please choose correct for answer"
+            answer: "Answer"
             tab:
               title: "Answers"
           title: "Manage Questions"

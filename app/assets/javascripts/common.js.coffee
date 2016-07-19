@@ -12,3 +12,4 @@ $(document).ready ->
       alert('Maximum file size is 5MB. Please choose a smaller file.')
   $('.exit_alert').on 'click', ->
     $(this).parent().slideUp('slow')
+  $('select').material_select()
