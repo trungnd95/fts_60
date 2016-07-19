@@ -4,28 +4,28 @@
   <td><%= question.question_type %></td>
   <td><%= question.subject.name %></td>
   <td class="action_subject">
-      <div class="fixed-action-btn horizontal click-to-toggle">
-        <a class="btn-floating btn-large blue">
-          <i class="large material-icons">settings</i>
-        </a>
-        <ul>
-          <li>
-            <%= link_to(edit_admin_question_path(question),
-              class: "btn-floating red sm tooltipped",
-              data: {position: "top", delay: "50",
-              tooltip: t("page.admin.action.edit")}) do %>
-              <i class="material-icons yellow darken-1">mode_edit</i>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to([:admin, question],
-              class: "btn-floating red darken-1 tooltipped delete_question",
-              method: :delete, data: {position: "top", delay: "50",
-              id: question.id, tooltip: t("page.admin.action.delete")}) do %>
-              <i class="material-icons">delete</i>
-            <% end %>
-          </li>
-        </ul>
-      </div>
-    </td>
+    <div class="fixed-action-btn horizontal click-to-toggle">
+      <a class="btn-floating btn-large blue">
+        <i class="large material-icons">settings</i>
+      </a>
+      <ul>
+        <li>
+          <%= link_to("#edit_question_#{question.id}",
+            class: "btn-floating red sm tooltipped modal-trigger",
+            data: {position: "top", delay: "50",
+            tooltip: t("page.admin.action.edit")}) do %>
+            <i class="material-icons yellow darken-1">mode_edit</i>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to([:admin, question],
+            class: "btn-floating red darken-1 tooltipped delete_question",
+            method: :delete, data: {position: "top", delay: "50",
+            id: question.id, tooltip: t("page.admin.action.delete")}) do %>
+            <i class="material-icons">delete</i>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </td>
 <% end %>

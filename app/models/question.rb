@@ -20,7 +20,7 @@ class Question < ActiveRecord::Base
       if answers.size <= 1
         errors.add(:answer, I18n.t("page.admin.questions.answers.validate.number_answers"))
       end
-      if answers.number_correct == 0
+      if answers.map(&:correct).count == 0
         errors.add(:correct_answers, I18n.t("page.admin.questions.answers.validate.number_correct"))
       end
     end

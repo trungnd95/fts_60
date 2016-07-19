@@ -1,0 +1,56 @@
+<%= form_for([:admin, question]) do |f| %>
+  <div class="modal-heading">
+    <h5 class="center-align"><%= t "page.admin.questions.add.new" %></h5>
+    <div class="divider"></div>
+  </div>
+  <div class="modal-content">
+    <div class="row">
+      <div class="input-field col s12">
+        <%= f.hidden_field :question_status, value: 1 %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <%= f.text_field :content %>
+        <%= f.label :content %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <%= f.select :subject_id,
+          subjects.collect {|subject| [subject.name, subject.id ]},
+          {}, {class: "form-control"} %>
+        <%= f.label :subject_id %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <%= f.select :question_type,
+          options_for_select(Question.question_types.keys) %>
+        <%= f.label :question_type %>
+      </div>
+    </div>
+    <div id ="answer_field">
+      <div class="col m10 offset-m1">
+        <h5 class="center-align">
+          <%= t "page.admin.questions.answers.answer" %>
+        </h5>
+      </div>
+      <%= f.fields_for :answers do |answer_builder| %>
+      <p>
+        <%= render "answer_fields", f: answer_builder %>
+      </p>
+      <% end %>
+      <%= link_to_add_fields t("page.admin.questions.add_answer"),
+        f, :answers %>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <%= f.submit t("page.admin.action.submit"),
+      class: "modal-action modal-close waves-effect waves-green btn-flat" %>
+    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">
+      <%= t "page.admin.action.cancel" %>
+    </a>
+  </div>
+<% end %>
+

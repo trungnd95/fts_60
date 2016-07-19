@@ -39,30 +39,34 @@
         </tr>
       </thead>
       <tbody class="subject_body_tables">
-        <% if @questions.size > 0 %>
-          <%= render @questions %>
+        <% @questions.each do |question| %>
+          <%= render question, subjects: @subjects %>
         <% end %>
       </tbody>
     </table>
     <%= paginate @questions %>
   </div>
+
   <div class="col m3 hide answers_tab">
-      <h5 class="center-align"><%= t "page.admin.questions.answers.tab.title" %></h5>
-      <div class="divider"></div>
-      <div>
-        <ul id="list-answers">
-        </ul>
-      </div>
+    <h5 class="center-align"><%= t "page.admin.questions.answers.tab.title" %></h5>
+    <div class="divider"></div>
+    <div>
+      <ul id="list-answers">
+      </ul>
+    </div>
   </div>
 </div>
 
-<!-- Modal Structure -->
 <div id="add_new_question" class="modal">
   <div class="modal-heading">
     <h5 class="center-align"><%= t "page.admin.questions.add.new" %></h5>
     <div class="divider"></div>
   </div>
   <%= form_for([:admin, @question]) do |f| %>
+    <div class="modal-heading">
+      <h5 class="center-align"><%= t "page.admin.questions.add.new" %></h5>
+      <div class="divider"></div>
+    </div>
     <div class="modal-content">
       <div class="row">
         <div class="input-field col s12">
@@ -114,3 +118,9 @@
     </div>
   <% end %>
 </div>
+
+<% @questions.each do |question| %>
+  <div id="edit_question_<%= question.id %>" class="modal">
+    <%= render "form", question: question, subjects: @subjects %>
+  </div>
+<% end %>
