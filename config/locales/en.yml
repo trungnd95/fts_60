@@ -125,6 +125,7 @@ en:
           add:
             success: "Question was successfully added !!"
             danger: "Some thing went wrong!!"
+            new: "Add new question"
           add_answer: "Add answer"
           select:
             default: "Choose a option"
@@ -137,8 +138,7 @@ en:
             tab:
               title: "Answers"
           title: "Manage Questions"
-          add:
-            new: "Add new question"
+          suggest: "Manage Suggest Question"
           table:
             stt: "STT"
             content: "Content"
@@ -183,3 +183,14 @@ en:
     front-end:
       home-page:
         title: "Home Page"
+      questions:
+        index:
+          title: "Suggest Questions"
+        new:
+          title: "Add New Suggest Question"
+        tables:
+          stt: "STT"
+          content: "Content"
+          type: "Type"
+          subject_name: "Subject Name"
+          status: "Status"

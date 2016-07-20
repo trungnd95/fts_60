@@ -1,0 +1,20 @@
+<%= content_tag_for(:tr, question, class: "row_question") do %>
+  <td class="right-align"><%= question.id %></td>
+  <td>
+    <a href="#!" onclick="Materialize.showStaggeredList('#list-answers-<%= question.id %>')">
+      <%= question.content %>
+    </a>
+  </td>
+  <td><%= question.question_type %></td>
+  <td><%= question.subject.name %></td>
+  <td>
+    <% if question.pending? %>
+      <i class="fa fa-spinner" aria-hidden="true"></i>
+    <% elsif question.accepted? %>
+      <i class="fa fa-check" aria-hidden="true"></i>
+    <% else %>
+      <i class="fa fa-times" aria-hidden="true"></i>
+    <% end %>
+    <%= question.question_status %>
+  </td>
+<% end %>

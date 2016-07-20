@@ -10,5 +10,5 @@ Rails.application.routes.draw do
     omniauth_callbacks: "users/omniauth_callbacks"}
   resources :users, only: [:show, :edit, :update]
   resources :examinations, except: [:destroy, :update]
-
+  resources :questions, only: [:new, :index, :create]
 end
