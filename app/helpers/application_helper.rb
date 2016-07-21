@@ -16,4 +16,12 @@ module ApplicationHelper
     end
     Time.at(time).utc.strftime Settings.TIME_FORMAT
   end
+
+  def created_at examination
+    if examination.start? or examination.updated_at.nil?
+      content_tag :p, Settings.default_time
+    else
+      spent_time examination
+    end
+  end
 end

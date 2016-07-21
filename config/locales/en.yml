@@ -75,6 +75,7 @@ en:
           title: "Title"
           controller:
             create: "you created successfully"
+            check_exam: "Access denied!"
           view:
             index:
               create: "Create"
@@ -86,6 +87,8 @@ en:
               question_number: "Question_number"
               spent_time: "Spent_time"
               score: "Score"
+              action: "Action"
+              row: "List Examination"
 
     admin:
       exams:
@@ -221,3 +224,8 @@ en:
           subject_name: "Subject Name"
           status: "Status"
           action: "Action"
+      examination:
+        title: "Examination"
+        do:
+          save: "Save"
+          finish: "Finish"

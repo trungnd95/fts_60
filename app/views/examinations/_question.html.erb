@@ -1,0 +1,21 @@
+<div class="panel panel-default col m6 question_answers">
+  <span class="label label-default label-lg quesiton_number">
+    <%= t "page.front-end.lessons.do.question_num"%>
+    <%= f.index + 1 %>
+  </span><br/>
+  <label><%= f.object.question.content %>?</label>
+  <div>
+    <div class="answers">
+      <% f.object.question.answers.each do |answer| %>
+        <%= f.hidden_field :question_id  %>
+        <p>
+          <%= f.radio_button :answer_id, answer.id,
+            checked: answer.id == f.object.answer_id %>
+          <%= f.label :answer_id  %>
+          <%= answer.content %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+</div>
+
