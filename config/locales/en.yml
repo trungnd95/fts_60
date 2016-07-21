@@ -89,6 +89,15 @@ en:
 
     admin:
       exams:
+        email:
+          result:
+            subject: "Examination Score"
+            hi: "Hi"
+            thank: "You are finished a exam on FTS 60"
+            your_core: "Your score is: "
+        update:
+          success: "You was successfully udpated!"
+          fail: "Some thing went wrong"
         title: "Manage Exams"
         tables:
           time_create: "Create At"

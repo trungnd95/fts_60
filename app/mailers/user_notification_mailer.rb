@@ -5,4 +5,10 @@ class UserNotificationMailer < ApplicationMailer
     @user =  user
     mail to: @user.email, subject: t("page.admin.subjects.email.subject")
   end
+
+  def send_exam_result exam
+    @exam = exam
+    @user = exam.user
+    mail to: @user.email, subject: t("page.admin.exams.email.result.subject")
+  end
 end

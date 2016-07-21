@@ -12,52 +12,60 @@
       <thead>
         <tr>
           <th data-field="time_create">
-            <%= t "page.admin.exams.tables.time_create" %>
+            <%= t "page.admin.examinations.tables.time_create" %>
           </th>
           <th data-field="subject">
-            <%= t "page.admin.exams.tables.subject" %>
+            <%= t "page.admin.examinations.tables.subject" %>
           </th>
           <th data-field="status">
-            <%= t "page.admin.exams.tables.status" %>
+            <%= t "page.admin.examinations.tables.status" %>
           </th>
           <th data-field="question_number">
-            <%= t "page.front-end.exams.tables.question_number" %>
+            <%= t "page.front-end.examinations.tables.question_number" %>
           </th>
           <th data-field="duration">
-            <%= t "page.admin.exams.tables.duration" %>
+            <%= t "page.admin.examinations.tables.duration" %>
           </th>
           <th data-field="spent_time">
-            <%= t "page.front-end.exams.tables.spent_time" %>
+            <%= t "page.front-end.examinations.tables.spent_time" %>
           </th>
           <th data-field="score">
-            <%= t "page.front-end.exams.tables.core" %>
+            <%= t "page.front-end.examinations.tables.core" %>
           </th>
           <th data-field="action">
-            <%= t "page.front-end.exams.tables.action" %>
+            <%= t "page.front-end.examinations.tables.action" %>
           </th>
         </tr>
       </thead>
       <tbody class="subject_body_tables">
-        <% @exams.each do |exam| %>
-          <tr>
-            <td><%= exam.created_at.strftime t "time.date" %></td>
-            <td><%= exam.subject.name %></td>
-            <td><%= exam.status %></td>
-            <td><%= exam.subject.question_number %></td>
-            <td><%= exam.subject.duration %></td>
-            <td><%= exam.start? ? Settings.default_time : spend_time(exam) %></td>
+        <% @examinations.each do |examination| %>
+          <tr class="examination_<%= examination.id %>">
+            <td><%= examination.created_at.strftime t "time.date" %></td>
+            <td><%= examination.subject.name %></td>
             <td>
-              <% if exam.checked? %>
-                <%= exam.results.is_corrects.count %> /
-                <%= exam.subject.question_number %>
-              <% else %>
-                ---
-              <% end %>
+              <span class="data_need_load status_load">
+                <%= examination.status %>
+              </span>
+              <i class="fa fa-spinner loading hide" aria-hidden="true"></i>
+            </td>
+            <td><%= examination.subject.question_number %></td>
+            <td><%= examination.subject.duration %></td>
+            <td><%= examination.start? ? Settings.default_time : spend_time(examination) %></td>
+            <td>
+              <span class="data_need_load score_load">
+                <% if examination.checked? %>
+                  <%= examination.results.is_corrects.count %> /
+                  <%= examination.subject.question_number %>
+                <% else %>
+                  ---
+                <% end %>
+              </span>
+              <i class="fa fa-spinner loading hide" aria-hidden="true"></i>
             </td>
             <td>
-              <% if exam.uncheck? %>
-                <a class="waves-effect waves-light green-text"
-                  data-id="<%= exam.id %>" data-status="checked">
+              <% if examination.uncheck? %>
+                <a class="waves-effect waves-light green-text check_examination"
+                  data-id="<%= examination.id %>" data-status="checked">
                   <i class="fa fa-check" aria-hidden="true"></i>
                   <%= t "page.admin.action.check" %>
                 </a>
@@ -67,6 +75,6 @@
         <% end %>
       </tbody>
     </table>
-    <%= paginate @exams %>
+    <%= paginate @examinations %>
   </div>
 </div>

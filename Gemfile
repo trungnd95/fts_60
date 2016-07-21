@@ -40,6 +40,7 @@ gem "devise"
 gem "cancancan", "~> 1.10"
 gem "omniauth-facebook"
 gem "figaro"
+gem "sidekiq"
 # bundle exec rake doc:rails generates the API under doc/api.
 gem "sdoc", "~> 0.4.0", group: :doc
 
