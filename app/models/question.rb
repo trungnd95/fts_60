@@ -15,6 +15,9 @@ class Question < ActiveRecord::Base
 
   validate :validate_answers_if_choosen
 
+  scope :suggest, ->{where.not(user_id: nil).where(question_status: 0)}
+  scope :accepted_question, ->{where(question_status: 1)}
+
   private
   def validate_answers_if_choosen
     unless self.text?

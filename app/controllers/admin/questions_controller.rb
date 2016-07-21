@@ -5,18 +5,29 @@ class Admin::QuestionsController < ApplicationController
   before_action :load_subjects, except: [:new, :delete]
 
   def index
-    @questions =  Question.includes([:subject, :answers])
-      .page(params[:page]).per Settings.per_page
-    @question =  Question.new
-    @question.answers.new
+    if params[:suggest_question]
+      @questions  = Question.includes([:subject, :answers])
+        .suggest.page(params[:page]).per Settings.per_page
+      respond_to do |format|
+        format.html do
+          render template: "admin/questions/suggest_question"
+        end
+        format.json{render json: @questions, status: :ok}
+      end
+    else
+      @questions =  Question.includes([:subject, :answers])
+        .accepted_question.page(params[:page]).per Settings.per_page
+      @question =  Question.new
+      @question.answers.new
 
-    respond_to do |format|
-      if @questions.size > 0
-        format.html
-        format.json{render json: @questions}
-      else
-        format.html
-        format.json{head :no_content}
+      respond_to do |format|
+        if @questions.size > 0
+          format.html
+          format.json{render json: @questions}
+        else
+          format.html
+          format.json{head :no_content}
+        end
       end
     end
   end
@@ -54,13 +65,14 @@ class Admin::QuestionsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @question.update admin_question_params
+      if @question.update question_params
         format.html do
           flash[:success] =  t "page.admin.questions.edit.success"
           redirect_to admin_questions_path
         end
         format.json do
           render json:  {
+            message: t("page.admin.questions.update.success"),
             question_id: params[:id],
             content: render_to_string({
               partial: "admin/questions/question",

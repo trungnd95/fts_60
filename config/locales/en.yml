@@ -87,6 +87,8 @@ en:
 
     admin:
         action:
+          accepted: "Accepted"
+          reject: "Reject"
           submit: "Submit"
           cancel: "Cancel"
           create: "Create"
@@ -109,6 +111,8 @@ en:
           suggestions: "Suggestions"
           exams: "Exams"
         questions:
+          update:
+            success: "Question was successfully updated !"
           destroy:
             success: "Question was successfully deleted !"
             fail: "Question exist in examinations. ! Not allow to delete!"
@@ -194,3 +198,4 @@ en:
           type: "Type"
           subject_name: "Subject Name"
           status: "Status"
+          action: "Action"
