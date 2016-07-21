@@ -17,3 +17,7 @@ question_type:
   single_choise: 1
   multiple_choise: 2
   text: 3
+MINUTE: 60
+TIME_FORMAT: "%H:%M:%S"
+DATETIME: "%d/%m/%Y"
+default_time: "00:00:00"

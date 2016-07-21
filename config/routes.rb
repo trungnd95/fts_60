@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :destroy]
     resources :subjects
     resources :questions
+    resources :examinations, only: [:index, :update]
   end
   devise_for :users, controllers: {registrations: "users/registrations",
     omniauth_callbacks: "users/omniauth_callbacks"}

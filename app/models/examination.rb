@@ -24,5 +24,4 @@ class Examination < ActiveRecord::Base
   def default_spent_time
     self.created_at ||= Settings.default_spent_time
   end
-
 end

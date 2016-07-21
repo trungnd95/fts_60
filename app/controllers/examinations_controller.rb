@@ -8,7 +8,7 @@ class ExaminationsController < ApplicationController
 
   def create
     respond_to do |format|
-      if @examination.save(examination_params)
+      if @examination.save examination_params
         format.html{
           flash[:success] = t "page.views.devise.examination.controller.create"
           redirect_to examinations_path
