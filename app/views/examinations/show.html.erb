@@ -1,0 +1,67 @@
+<%= content_for :title do %>
+  <%= t "page.front-end.examination.title" %>
+<% end %>
+
+<%= content_for :page_title do %>
+  <%= @examination.subject.name %>
+<% end %>
+
+<div class="row">
+  <% if @examination.start? || @examination.testing? %>
+    <%= form_for @examination do |f| %>
+      <ol>
+        <%= f.fields_for :results do |result| %>
+          <%= render "question", f: result %>
+        <% end %>
+      </ol>
+      <div class="col-md-2 col-md-offset-1">
+        <button type="submit" name="examination[status]"
+          class="btn waves-effect waves-light green" value="testing">
+          <%= t "page.front-end.examination.do.save" %>
+        </button>
+        <button type="submit" name="examination[status]"
+          class="btn waves-effect waves-light blue right" value="uncheck">
+          <%= t "page.front-end.examination.do.finish" %>
+        </button>
+      </div>
+    <% end %>
+  <% else %>
+    <%= form_for @examination do |f| %>
+      <ol>
+        <%= f.fields_for :results do |result| %>
+          <div class="panel panel-default col m6 question_answers">
+            <span class="label label-default label-lg quesiton_number">
+              <%= t "page.front-end.lessons.do.question_num"%>
+              <%= result.index + 1 %>
+            </span><br/>
+            <label><%= result.object.question.content %>?</label>
+            <div>
+              <div class="answers">
+                <% result.object.question.answers.each do |answer| %>
+                  <%= result.hidden_field :question_id  %>
+                  <% if result.object.examination.checked? %>
+                    <% if answer.correct? %>
+                      <p class="green-text">
+                    <% else %>
+                      <p class="red-text">
+                    <% end %>
+                  <% else %>
+                      <p>
+                  <% end %>
+                    <%= result.radio_button :answer_id, answer.id,
+                      checked: answer.id == result.object.answer_id,
+                      disabled: true %>
+                    <%= result.label :answer_id  %>
+                    <%= answer.content %>
+                  </p>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </ol>
+    <% end %>
+  <% end %>
+</div>
+
+

@@ -158,3 +158,46 @@ table {
 .loading {
   margin-left: -50%
 }
+[type="radio"]:not(:checked), [type="radio"]:checked {
+  position: static !important;
+  opacity: 1 !important;
+}
+
+[type="radio"]:not(:checked) + label, [type="radio"]:checked + label {
+  position: relative !important;
+  padding-left: -9999px !important;
+  cursor: pointer;
+  display: inline-block;
+  height: 0px !important;
+  line-height: 0px !important;
+  font-size: 0rem !important;
+  transition: .28s ease;
+}
+
+[type="radio"]:not(:checked) + label:before,
+[type="radio"]:not(:checked) + label:after {
+  border: 0px !important;
+}
+
+[type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:after {
+  background-color: transparent !important;
+  z-index: -9999 !important;
+  opacity: 0 !important;
+}
+
+[type="radio"] + label:before, [type="radio"] + label:after {
+  content: '';
+  position: static !important;
+  width: 0px !important;
+  height: 0px !important;
+  z-index: 0;
+  transition: 0s ease !important
+}
+
+.quesiton_number {
+  text-decoration: underline;
+}
+
+.question_answers {
+  height: 180px;
+}

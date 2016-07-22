@@ -12,11 +12,11 @@ class Question < ActiveRecord::Base
   validates :content, presence: true, length: {minimum: 2}
   validates :subject_id, presence: true
   validates_associated  :answers
-
   validate :validate_answers_if_choosen
 
   scope :suggest, ->{where.not(user_id: nil).where(question_status: 0)}
   scope :accepted_question, ->{where(question_status: 1)}
+  scope :accepted, -> {where question_status: 0}
 
   private
   def validate_answers_if_choosen

@@ -252,7 +252,26 @@ Devise.setup do |config|
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
   #
-  # config.warden do |manager|
+  #  config.warden do |manager|
+  #   Warden::Manager.after_set_user except: :fetch do |record, warden, options|
+  #     if record.respond_to?(:update_tracked_fields!)
+  #       && warden.authenticated?(options[:scope])
+  #       if record.admin?
+  #         CUSTOM_LOGGER.info I18n.t "page.admin.login_log",
+  #           ip: warden.request.remote_ip,
+  #           email: record.email, cur_time: Time.now
+  #       end
+  #     end
+  #   end
+
+  #   Warden::Manager.before_logout do |record, warden, options|
+  #     if record.admin?
+  #       CUSTOM_LOGGER.info I18n.t "page.admin.logout_log",
+  #         ip: warden.request.remote_ip,
+  #         email: record.email, cur_time: Time.now
+  #     end
+  #   end
+  # end
   #   manager.intercept_401 = false
   #   manager.default_strategies(scope: :user).unshift :some_external_strategy
   # end

@@ -2,20 +2,25 @@
 <%= form_for(@exam) do |f| %>
   <div class="row">
     <div class="input-field col s12">
-      <%= f.select(:subject_id) do %>
-        <% @subjects.collect do |c| %>
-          <%= content_tag(:option, c.name, value: c.id) %>
+      <div class="collect">
+        <%= f.select(:subject_id) do %>
+          <% @subjects.collect do |c| %>
+            <%= content_tag(:option, c.name, value: c.id) %>
+          <% end %>
         <% end %>
-      <% end %>
-      <%= f.label :subject %><br>
-      <%= f.hidden_field :status, value: :start %>
+        <%= f.label :subject %><br>
+        <%= f.hidden_field :status, value: :start %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+      </div>
       <%= submit_tag t("page.views.devise.examination.view.index.create"),
         class: "btn btn-md btn-primary" %>
     </div>
   </div>
 <% end %>
 <div class="row">
-  <h3><%= t ".list_exam" %></h3>
+  <div class="row_h4">
+    <h4><%= t "page.views.devise.examination.view.index.row" %></h4>
+  </div>
   <table class="striped centered highlight" id="table-user">
     <thead>
       <tr>
@@ -52,10 +57,28 @@
           <td><%= examination.subject_duration %></td>
           <td><%= examination.subject_question_number %></td>
           <td><%= Time.now.at_beginning_of_day.strftime("%H:%M:%S") %></td>
-          <td></td>
           <td>
-            <%= link_to t("page.views.devise.examination.view.index.start"),
-              "#", class: "btn btn-primary" %>
+            <% if examination.checked? %>
+              <%= examination.results.is_corrects.count %>/
+              <%= examination.subject.question_number %>
+            <% else %>
+              ---
+            <% end %>
+          </td>
+          <td>
+            <% if examination.start? %>
+              <td><%= link_to t("admin.exams.start"),
+                examination_path(examination),
+                class: "col-md-8 btn btn-primary" %></tdx`>
+            <% elsif examination.testing? %>
+              <td><%= link_to t("admin.exams.view"),
+                examination_path(examination),
+                class: "col-md-8 btn btn-warning" %></td>
+            <% elsif examination.uncheck? %>
+              <td><%= link_to t("admin.exams.view"),
+                examination_path(examination),
+                class: "col-md-8 btn btn-success" %></td>
+            <% end %>
           </td>
         </tr>
       <% end %>
