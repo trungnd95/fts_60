@@ -4,6 +4,7 @@ role_user: 1
 per_page: 5
 number_questions_per_examination: 20
 default_spent_time: 0
+log_directory: "log"
 admin:
   users:
     size: "70x70"

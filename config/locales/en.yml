@@ -89,8 +89,13 @@ en:
               score: "Score"
               action: "Action"
               row: "List Examination"
-
     admin:
+      information_log: "Information log"
+      time: "Time"
+      logs: "Logs"
+      log_in: "Log in"
+      has_been_sign_in: "has been sign in"
+      has_been_sign_out: "has been sign out"
       exams:
         email:
           result:

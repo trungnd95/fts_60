@@ -1,5 +1,5 @@
 <%= content_for :title do %>
-  <%= t "page.admin.users.title" %>
+  <%= t "page.admin.user.title" %>
 <% end %>
 <div class="row">
   <table class="striped centered highlight" id="table-user">
@@ -37,3 +37,4 @@
   </table>
 <%= paginate @users %>
 </div>
+<%= render "log" if current_user.admin? %>
