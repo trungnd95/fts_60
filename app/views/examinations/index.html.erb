@@ -56,7 +56,7 @@
           <td><%= examination.status %></td>
           <td><%= examination.subject_duration %></td>
           <td><%= examination.subject_question_number %></td>
-          <td><%= Time.now.at_beginning_of_day.strftime("%H:%M:%S") %></td>
+          <td><%= spend_time examination %></td>
           <td>
             <% if examination.checked? %>
               <%= examination.results.is_corrects.count %>/
@@ -70,14 +70,10 @@
               <td><%= link_to t("admin.exams.start"),
                 examination_path(examination),
                 class: "col-md-8 btn btn-primary" %></tdx`>
-            <% elsif examination.testing? %>
+            <% else %>
               <td><%= link_to t("admin.exams.view"),
                 examination_path(examination),
                 class: "col-md-8 btn btn-warning" %></td>
-            <% elsif examination.uncheck? %>
-              <td><%= link_to t("admin.exams.view"),
-                examination_path(examination),
-                class: "col-md-8 btn btn-success" %></td>
             <% end %>
           </td>
         </tr>

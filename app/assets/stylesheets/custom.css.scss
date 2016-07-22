@@ -201,3 +201,17 @@ table {
 .question_answers {
   height: 180px;
 }
+
+.clock_count_down {
+  position: absolute;
+  top: 170px;
+  height: 120px;
+  width: 120px !important;
+  border-radius: 50%;
+  border: 1px solid #80cbc4;
+  p {
+    position: absolute;
+    top: 45px;
+    left: 25px;
+  }
+}
