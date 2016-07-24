@@ -1,0 +1,13 @@
+<h2><%= t "page.admin.exams.email.static.hi" %><span><%= @user.name %></span></h2>
+<p><%= t "page.admin.exams.email.static.thank" %></p>
+<h4><%= t("page.admin.exams.email.content", exams: @exams.count)  %></h4>
+<% @exams.each_with_index do |exam, index| %>
+  <p>
+    <strong><%= t "page.admin.exams.email.static.exam" %><%= index + 1 %></strong>
+    <%= page.admin.exams.email.result.your_score %>
+    <span class="score_exam">
+      <%= exam.results.is_corrects.count %> /
+      <%= exam.subject.question_number %>
+    </span>
+  </p>
+<% end %>

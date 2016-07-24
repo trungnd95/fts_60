@@ -30,4 +30,9 @@ class Examination < ActiveRecord::Base
   def default_spent_time
     self.created_at ||= Settings.default_spent_time
   end
+
+  def self.send_static_exams
+    @exams = Examination.where(user_id: self.user.id)
+    UserNotificationMailer.send_static_every_month(@exams, self.user).deliver
+  end
 end

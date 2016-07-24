@@ -11,4 +11,10 @@ class UserNotificationMailer < ApplicationMailer
     @user = exam.user
     mail to: @user.email, subject: t("page.admin.exams.email.result.subject")
   end
+
+  def send_static_every_month exams, user
+    @exams = exams
+    @user = user
+    mail to: @user.email, subject: t("page.admin.exams.email.static.subject")
+  end
 end

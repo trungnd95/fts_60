@@ -109,6 +109,12 @@ en:
       has_been_sign_out: "has been sign out"
       exams:
         email:
+          static:
+            subject: "Static exams this month"
+            hi: "Hi"
+            thank: "Thanks for your enthusiasm during whole month!"
+            content: "In this month, you had been finished %{exams} exams"
+            exam: "Exam "
           result:
             subject: "Examination Score"
             hi: "Hi"
