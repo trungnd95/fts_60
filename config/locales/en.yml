@@ -89,6 +89,10 @@ en:
               score: "Score"
               action: "Action"
               row: "List Examination"
+        mailer:
+          examination_delay: "Lesson must be start after 8 hour from created!"
+          rexamination_delay: "Rexamination delay"
+
     admin:
       information_log: "Information log"
       time: "Time"
