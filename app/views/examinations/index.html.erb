@@ -67,17 +67,17 @@
           </td>
           <td>
             <% if examination.start? %>
-              <td><%= link_to t("admin.exams.start"),
+              <%= link_to t("admin.exams.start"),
                 examination_path(examination),
-                class: "col-md-8 btn btn-primary" %></tdx`>
+                class: "col-md-8 btn btn-primary" %>
             <% elsif examination.testing? %>
-              <td><%= link_to t("admin.exams.view"),
+              <%= link_to t("admin.exams.view"),
                 examination_path(examination),
-                class: "col-md-8 btn btn-warning" %></td>
+                class: "col-md-8 btn btn-warning" %>
             <% elsif examination.uncheck? %>
-              <td><%= link_to t("admin.exams.view"),
+              <%= link_to t("admin.exams.view"),
                 examination_path(examination),
-                class: "col-md-8 btn btn-success" %></td>
+                class: "col-md-8 btn btn-success" %>
             <% end %>
           </td>
         </tr>

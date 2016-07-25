@@ -89,6 +89,13 @@ en:
               score: "Score"
               action: "Action"
               row: "List Examination"
+        activity:
+          create: "has created"
+          edit: "has edited"
+          destroy: "has deleted"
+          ago: "ago"
+          show: "List activities"
+          show_user: "User Information"
         mailer:
           examination_delay: "Lesson must be start after 8 hour from created!"
           rexamination_delay: "Rexamination delay"

@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="list">
+  <p>
+  <%= link_to activity.owner.name, activity.owner if activity.owner %>
+  <% if activity.owner == current_user %>
+    <% if activity.key.include? "create" %>
+      <%= t "page.views.devise.activity.create" %>
+    <% elsif activity.key.include? "update" %>
+      <%= t "page.views.devise.activity.edit" %>
+    <% else activity.key.include? "destroy" %>
+      <%= t "page.views.devise.activity.delete" %>
+    <% end %>
+    <%=link_to activity.trackable_type %>
+    <% activity.trackable_id %>
+    <%= time_ago_in_words(activity.created_at) %>
+    <%= t "activity.ago" %>
+  </p>
+  <% end %>
+</div>
+</div>
