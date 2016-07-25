@@ -10,6 +10,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @activities = PublicActivity::Activity.order(created_at: :desc)
+      .page(params[:page]).per Settings.per_page
+  end
+
   private
   def user_params
     params.require(:user).permit :name, :avatar, :email

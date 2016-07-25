@@ -17,17 +17,3 @@ end
   question_number: 20,
   duration: 30
 end
-
-5.times do |u|
-  Examination.create! status: 1,
-  user_id: 1,
-  subject_id: (u+1)
-end
-
-5.times do |u|
-  Question.create! content: "abc",
-  question_status: 1,
-  question_type: 1,
-  user_id: 1,
-  subject_id: 1
-end

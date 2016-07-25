@@ -1,8 +1,12 @@
 class Question < ActiveRecord::Base
+  include PublicActivity::Model
+
   belongs_to :user
   belongs_to :subject
   has_many :answers, dependent: :destroy
   has_many :results, dependent: :destroy
+
+  tracked  owner: ->(controller, model){controller && controller.current_user}
 
   enum question_type: [:single_choise, :multiple_choise, :text]
   enum question_status: [:pending, :accepted, :reject]

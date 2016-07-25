@@ -7,7 +7,6 @@ class User < ActiveRecord::Base
 
   enum role: [:admin, :user]
   has_many :examinations, dependent: :destroy
-  has_many :activities, dependent: :destroy
   has_many :questions, dependent: :destroy
 
   mount_uploader :avatar, PictureUploader

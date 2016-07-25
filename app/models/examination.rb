@@ -1,4 +1,6 @@
 class Examination < ActiveRecord::Base
+  include PublicActivity::Model
+
   enum status: [:start, :testing, :uncheck, :checked]
   after_initialize :default_spent_time
 
@@ -6,6 +8,8 @@ class Examination < ActiveRecord::Base
   belongs_to :user
   has_many :results, dependent: :destroy
   has_many :questions, through: :results
+
+  tracked  owner: ->(controller, model){controller && controller.current_user}
 
   accepts_nested_attributes_for :results,
     reject_if: lambda {|a| a[:question_id].blank?}, allow_destroy: true
