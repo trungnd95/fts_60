@@ -1,30 +1,61 @@
-<h2><%= t "page.views.devise.sessions.new"%></h2>
-
-<%= form_for(resource,
-   as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit t("page.views.devise.sessions.submit") %>
-  </div>
+<%= content_for :title do %>
+  <%= t "page.views.devise.sessions.new" %>
 <% end %>
 
-<%= render "devise/shared/links" %>
-
-<%= link_to t("views.devise.sessions.signin.facebook"),
-  user_facebook_omniauth_authorize_path %>
+<div class="row">
+  <div class="col m4 offset-m4">
+    <div class="card card-panel z-depth-2">
+      <%= form_for(resource,
+        as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="row heading-form">
+            <div class="col m12 center">
+              <h5 class="login_form_text">FTS Login</h5>
+            </div>
+          </div>
+          <%= render "shared/errors", object: f.object %>
+          <div class="row">
+            <div class="input-field col m12">
+              <i class="material-icons prefix icon_form_auth">perm_identity</i>
+              <%= f.email_field :email, autofocus: true %>
+              <%= f.label :email %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col m12">
+              <i class="material-icons prefix icon_form_auth">vpn_key</i>
+              <%= f.password_field :password, autocomplete: "off" %>
+              <%= f.label :password %>
+            </div>
+          </div>
+          <% if devise_mapping.rememberable? -%>
+            <div class="row remember_me">
+              <div class="input-field col m12">
+                <%= f.check_box :remember_me %>
+                <%= f.label :remember_me %>
+              </div>
+            </div>
+          <% end -%>
+          <div class="row">
+            <div class="input-field col m12">
+              <div class="actions">
+                <%= f.submit t("page.views.devise.sessions.submit"),
+                  class: "btn waves-effect waves-light pink col s12" %>
+              </div>
+            </div>
+          </div>
+          <%= render "devise/shared/links" %>
+      <% end %>
+      <div class="divider"></div>
+      <div class="row">
+        <div class="col m12">
+          <p class="center-align">
+            <%= link_to(user_facebook_omniauth_authorize_path) do %>
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+              <%= t("page.views.devise.sessions.signin.facebook") %>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,11 @@
-<% provide :title, t("page.views.devise.examination.title") %>
+<%= content_for :title do %>
+  <%= t "page.front-end.examination.index.title" %>
+<% end %>
+
+<%= content_for :page_title do %>
+  <%= t "page.front-end.examination.index.title" %>
+<% end %>
+
 <%= form_for(@exam) do |f| %>
   <div class="row">
     <div class="input-field col s12">

@@ -1,5 +1,8 @@
 class Users::SessionsController < Devise::SessionsController
-  before_action :create_log, except: :new
+  before_action :create_log, except: [:new, :create]
+  def after_sign_in_path_for resource
+    examinations_path
+  end
 
   def new
     super

@@ -7,11 +7,11 @@ default_spent_time: 0
 log_directory: "log"
 admin:
   users:
-    size: "70x70"
+    size: "250x250"
     url_ava: "assets/avata.jpg"
 users:
   size: "50x50"
-  size_ava: "100x100"
+  size_ava: "250x250"
   url_ava: "/assets/user_3.png"
   pic_size: 5
 question_type:

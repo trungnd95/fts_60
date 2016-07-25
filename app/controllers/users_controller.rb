@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   load_and_authorize_resource
 
+  def edit
+  end
+
   def update
     if @user.update_attributes user_params
       flash[:update_success] = t "views.devise.users.update"
@@ -12,6 +15,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit :name, :avatar, :email
+    params.require(:user).permit :name, :email, :avatar
   end
 end

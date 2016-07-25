@@ -11,9 +11,6 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-div.container {
-  min-height: 420px !important;
-}
 // ===========================
 // ============ Header =======
 // ===========================
@@ -214,4 +211,41 @@ table {
     top: 45px;
     left: 25px;
   }
+}
+
+.login-form {
+    width: 280px;
+}
+
+.heading-form {
+  margin-bottom: 20px;
+  .login_form_text {
+    letter-spacing: 2px;
+    font-size: 1.8rem;
+  }
+
+}
+
+.icon_form_auth {
+  top: 15px;
+}
+
+.remember_me {
+  margin-top: -20px;
+  .input-field {
+    margin-top: 0.7rem !important
+  }
+}
+
+.link_related {
+  div:first-child {
+    a {
+      margin-left: 20px;
+    }
+  }
+}
+
+.submit_button {
+  display: inline-block;
+  width: 49%
 }

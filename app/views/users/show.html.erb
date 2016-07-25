@@ -1,18 +1,39 @@
 <div class="container-fluid">
   <div class="row">
-    <p><%= t "admin.user.name" %><%= @user.name %></p>
-    <p><%= t "admin.user.email" %><%= @user.email %></p>
-    <p><%= t "admin.user.avatar" %><%= @user.avatar %></p>
-    <br>
-    <% if @user.avatar? %>
-      <%= image_tag(@user.avatar, size: Settings.users.size_ava) %>
-    <% else %>
-      <%= image_tag Settings.users.url_ava, size: Settings.users.size_ava %>
-    <% end %>
+    <div class="col m4">
+      <div class="row">
+        <div class="col m12">
+            <h5 class="center-align">User Information</h5>
+            <p><%= t "admin.user.name" %>: <i><%= @user.name %></i></p>
+            <p><%= t "admin.user.email" %>: <i><%= @user.email %></i></p>
+            <br>
+            <% if @user.avatar? %>
+              <%= image_tag(@user.avatar, size: Settings.users.size_ava) %>
+            <% else %>
+              <%= image_tag Settings.users.url_ava, size: Settings.users.size_ava %>
+            <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col m12">
+          <a href="#" class="btn btn-default" onclick="window.history.back()">
+            <i class="fa fa-reply-all" aria-hidden="true"></i>
+            <%= t "page.admin.action.cancel" %>
+          </a>
+          <%= link_to(edit_user_path, class: "btn waves-effect waves-light orange") do %>
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+            <%= t "page.admin.action.edit" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col m8">
+      <div class="content">
+        <h5 class="center-align">Something here ...</h5>
+        <p style="margin-top: 50px;">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque ea delectus dolores, quis vel minima sapiente inventore aliquam pariatur alias doloribus veniam vitae similique qui, libero dolore voluptas velit nihil.
+        </p>
+      </div>
+    </div>
   </div>
-  <br>
-  <%= link_to t("admin.user.edit"), edit_user_path,
-    class: "btn btn-primary" %> |
-  <%= link_to t("admin.user.back"), admin_users_path,
-    class: "btn btn-primary" %>
 </div>

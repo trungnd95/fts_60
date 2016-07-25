@@ -17,6 +17,7 @@ en:
           profile: "Profile"
           setting: "Setting"
           exam: "Exam"
+          suggest_question: "Suggest Question"
         footer:
           connect:
             title: "Connect Us"
@@ -37,7 +38,7 @@ en:
           submit: "Resend confirmation instructions"
         passwords:
           edit: "Change your password"
-          new: "Forgot your password?"
+          new: "Forgot password?"
           submit: "Change my password"
           password: "New password"
           password_confirm: "Confirm new password"
@@ -59,7 +60,7 @@ en:
         shared:
           login: "Log in"
           signup: "Sign up"
-          password: "Forgot your password?"
+          password: "Forgot password?"
           confirm: "Did not receive confirmation instructions?"
           instruction: "Did not receive unlock instructions?"
           post: "Post"
@@ -236,6 +237,8 @@ en:
           status: "Status"
           action: "Action"
       examination:
+        index:
+          title: "Examinations"
         title: "Examination"
         do:
           save: "Save"

@@ -9,6 +9,7 @@ class Ability
       can :read, :all
       can [:edit, :update], User, id: user.id
       can [:create, :read, :update], Examination, user_id: user.id
+      can [:read, :create], Question, user_id: user.id
     end
   end
 end

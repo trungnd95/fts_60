@@ -5,41 +5,46 @@
 <%= content_for :page_title do %>
   <%= t "page.views.devise.users.edit.page_title" %>
 <% end %>
+
 <div class="row">
   <div class="col m6 offset-m3">
-    <%= form_for @user do |f| %>
-      <div class="row">
-        <div class="input-field col s12">
-          <i class="material-icons prefix">account_circle</i>
-          <%= f.text_field :name, class: "form-control" %>
-          <%= f.label :name %>
+    <div class="card card-panel">
+      <%= form_for @user do |f| %>
+        <%= render "shared/errors", object: f.object %>
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">account_circle</i>
+            <%= f.text_field :name, class: "form-control" %>
+            <%= f.label :name %>
+          </div>
         </div>
-      </div>
 
-      <div class="row">
-        <div class="input-field col s12">
-          <i class="material-icons prefix">contacts</i>
-          <%= f.email_field :email, class: "form-control" %>
-          <%= f.label :email %>
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">contacts</i>
+            <%= f.email_field :email, class: "form-control" %>
+            <%= f.label :email %>
+          </div>
         </div>
-      </div>
 
-      <div class="row">
-        <div class="input-field col s12">
-          <i class="material-icons prefix active">picture_in_picture</i>
-          <%= f.label :avatar %><br/><br/>
-          <%= f.file_field :avatar, accept: "image/jpeg,image/gif,image/png" %>
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix active">picture_in_picture</i>
+            <%= f.label :avatar %><br/><br/>
+            <%= f.file_field :avatar, accept: "image/jpeg,image/gif,image/png" %>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <a class="waves-effect btn btn-default" onclick="window.history.back()">
-              <%= t "page.admin.action.cancel" %>
+        <div class="row">
+          <div class="input-field col s12">
+            <a class="waves-effect btn btn-default" onclick="window.history.back()"
+            style="display:inline-block; width: 49%">
+                <%= t "page.admin.action.cancel" %>
             </a>
-          <%= f.submit t("page.views.devise.users.submit"),
-            class: "waves-effect btn blue" %>
+            <%= f.submit t("page.views.devise.users.submit"),
+              class: "waves-effect btn blue submit_button" %>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>

@@ -13,3 +13,4 @@ $(document).ready ->
   $('.exit_alert').on 'click', ->
     $(this).parent().slideUp('slow')
   $('select').material_select()
+  $('.alert').delay(2000).slideUp('slow')
