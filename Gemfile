@@ -41,6 +41,7 @@ gem "cancancan", "~> 1.10"
 gem "omniauth-facebook"
 gem "figaro"
 gem "sidekiq"
+gem "whenever", require: false
 gem "public_activity"
 # bundle exec rake doc:rails generates the API under doc/api.
 gem "sdoc", "~> 0.4.0", group: :doc

@@ -8,7 +8,7 @@ class Ability
     else
       can :read, :all
       can [:edit, :update], User, id: user.id
-      can [:read, :create, :update, :show], Examination
+      can [:create, :read, :update], Examination, user_id: user.id
     end
   end
 end
