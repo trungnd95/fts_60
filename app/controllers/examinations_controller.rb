@@ -10,12 +10,20 @@ class ExaminationsController < ApplicationController
   end
 
   def show
+    if @examination.start? || @examination.testing?
+      @spend_time = @examination.end_time -  @examination.start_time
+      @time = @examination.subject.duration * 60 - @spend_time
+      @hour = @time / 3600
+      @minute = (@time % 3600) / 60
+      @second = (@time % 3600) % 60
+    end
     if @examination.start?
       @examination.update_attributes  status: :testing
     end
   end
 
   def update
+    @examination.end_time = Time.now.to_i
     if @examination.update_attributes examination_params
       redirect_to examinations_path
       flash[:success] = t "category.lesson.save_success"
@@ -27,6 +35,8 @@ class ExaminationsController < ApplicationController
 
   def create
     @exam = current_user.examinations.build examination_params
+    @exam.start_time = Time.now.to_i
+    @exam.end_time = Time.now.to_i
     respond_to do |format|
       if @exam.save examination_params
         format.html do

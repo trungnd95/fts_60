@@ -12,17 +12,9 @@ module ApplicationHelper
   def spend_time exam
     time = exam.subject.duration * Settings.MINUTE
     if exam.end_time - exam.start_time <= exam.subject.duration * Settings.MINUTE
-      time = exam.end_time - exam.start_time
+      time = exam.end_time.to_i - exam.start_time.to_i
     end
     Time.at(time).utc.strftime Settings.TIME_FORMAT
-  end
-
-  def created_at examination
-    if examination.start? or examination.updated_at.nil?
-      content_tag :p, Settings.default_time
-    else
-      spent_time examination
-    end
   end
 
   def generate_log

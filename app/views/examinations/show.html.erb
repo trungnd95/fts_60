@@ -8,6 +8,15 @@
 
 <div class="row">
   <% if @examination.start? || @examination.testing? %>
+    <div class="col m4 offset-m8 clock_count_down">
+      <p class="clock">
+        <input type="hidden" id="data_clock_init" data-hour="<%= @hour %>" data-minute="<%= @minute %>"
+        data-second="<%= @second %>" />
+        <span class="hour"></span> :
+        <span class="minute"></span> :
+        <span class="second"></span>
+      </p>
+    </div>
     <%= form_for @examination do |f| %>
       <ol>
         <%= f.fields_for :results do |result| %>
@@ -20,7 +29,7 @@
           <%= t "page.front-end.examination.do.save" %>
         </button>
         <button type="submit" name="examination[status]"
-          class="btn waves-effect waves-light blue right" value="uncheck">
+          class="btn waves-effect waves-light blue right finish_exam" value="uncheck">
           <%= t "page.front-end.examination.do.finish" %>
         </button>
       </div>
