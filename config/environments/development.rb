@@ -6,6 +6,7 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
+  config.active_job.queue_adapter = :sidekiq
   # Do not eager load code on boot.
   config.eager_load = false
 
@@ -40,16 +41,21 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
   require "custom_logger"
+  # config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.delivery_method = :smtp
+  # host = "localhost:3000"
+  # config.action_mailer.default_url_options = {host: host}
+  # ActionMailer::Base.smtp_settings = {address: "smtp.gmail.com",
+  #   port: "587",
+  #   authentication: :plain,
+  #   enable_starttls_auto: true,
+  #   user_name: ENV["GMAIL_USERNAME"],
+  #   password: ENV["GMAIL_PASSWORD"],
+  #   domain: "localhost",
+  # }
+  # to be appraised of mailing errors
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.delivery_method = :smtp
-  host = "localhost:3000"
-  config.action_mailer.default_url_options = {host: host}
-  ActionMailer::Base.smtp_settings = {address: "smtp.gmail.com",
-    port: "587",
-    authentication: :plain,
-    enable_starttls_auto: true,
-    user_name: ENV["GMAIL_USERNAME"],
-    password: ENV["GMAIL_PASSWORD"],
-    domain: "localhost",
-  }
+  # to deliver to the browser instead of email
+  config.action_mailer.delivery_method = :letter_opener
+
 end

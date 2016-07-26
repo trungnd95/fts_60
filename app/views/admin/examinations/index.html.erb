@@ -8,7 +8,7 @@
 
 <div class="row">
   <div class="col m12 layout_options">
-    <table class="striped centered highlight" id="table-question">
+    <table class="striped centered highlight" id="table-exams">
       <thead>
         <tr>
           <th data-field="time_create">
@@ -21,19 +21,19 @@
             <%= t "page.admin.examinations.tables.status" %>
           </th>
           <th data-field="question_number">
-            <%= t "page.front-end.examinations.tables.question_number" %>
+            <%= t "page.admin.examinations.tables.question_number" %>
           </th>
           <th data-field="duration">
             <%= t "page.admin.examinations.tables.duration" %>
           </th>
           <th data-field="spent_time">
-            <%= t "page.front-end.examinations.tables.spent_time" %>
+            <%= t "page.admin.examinations.tables.spent_time" %>
           </th>
           <th data-field="score">
-            <%= t "page.front-end.examinations.tables.core" %>
+            <%= t "page.admin.examinations.tables.score" %>
           </th>
           <th data-field="action">
-            <%= t "page.front-end.examinations.tables.action" %>
+            <%= t "page.admin.examinations.tables.action" %>
           </th>
         </tr>
       </thead>
@@ -43,16 +43,16 @@
             <td><%= examination.created_at.strftime t "time.date" %></td>
             <td><%= examination.subject.name %></td>
             <td>
-              <span class="data_need_load status_load">
+              <span class="data_need_load_<%= examination.id %> status_load_<%= examination.id %>">
                 <%= examination.status %>
               </span>
-              <i class="fa fa-spinner loading hide" aria-hidden="true"></i>
+              <i class="fa fa-spinner loading_<%= examination.id %> hide" aria-hidden="true"></i>
             </td>
             <td><%= examination.subject.question_number %></td>
             <td><%= examination.subject.duration %></td>
             <td><%= examination.start? ? Settings.default_time : spend_time(examination) %></td>
             <td>
-              <span class="data_need_load score_load">
+              <span class="data_need_load_<%= examination.id %> score_load_<%= examination.id %>">
                 <% if examination.checked? %>
                   <%= examination.results.is_corrects.count %> /
                   <%= examination.subject.question_number %>
@@ -60,11 +60,11 @@
                   ---
                 <% end %>
               </span>
-              <i class="fa fa-spinner loading hide" aria-hidden="true"></i>
+              <i class="fa fa-spinner loading_<%= examination.id %> hide" aria-hidden="true"></i>
             </td>
             <td>
               <% if examination.uncheck? %>
-                <a class="waves-effect waves-light green-text check_examination"
+                <a class="waves-effect waves-light green-text check_examination check_exam_button_<%= examination.id %>"
                   data-id="<%= examination.id %>" data-status="checked">
                   <i class="fa fa-check" aria-hidden="true"></i>
                   <%= t "page.admin.action.check" %>

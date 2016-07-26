@@ -10,13 +10,13 @@ class Admin::ExaminationsController < ApplicationController
   def update
     respond_to do |format|
       if @examination.update_attributes examination_params
-        EmailWorker.perform_async examination_params[:id]
+        EmailResultWorker.perform_async examination_params[:id]
         format.html do
           flash[:success] = t "page.admin.exams.update.success"
-          redirect_to @exam
+          redirect_to @examination
         end
-        @score = "#{examination.results.is_corrects.count} /
-          #{examination.subject.question_number}"
+        @score = "#{@examination.results.is_corrects.count} /
+          #{@examination.subject.question_number}"
         format.json do
           render json: {id: examination_params[:id], status: @examination.status,
             score: @score}
@@ -33,6 +33,6 @@ class Admin::ExaminationsController < ApplicationController
 
   private
   def examination_params
-    params.require(:examination).permit :status, :user_id, :subject_id
+    params.require(:examination).permit :id, :status, :user_id, :subject_id
   end
 end

@@ -15,6 +15,7 @@ class Examination < ActiveRecord::Base
     reject_if: lambda {|a| a[:question_id].blank?}, allow_destroy: true
 
   after_create :create_results
+  after_create :send_email_delay_examination
 
   delegate :name, :duration, :question_number, to: :subject,
     prefix: true, allow_nil: true
@@ -22,7 +23,8 @@ class Examination < ActiveRecord::Base
   scope :examination_user, ->(current_user){where(user_id: current_user.id)}
 
   def create_results
-    questions = subject.questions.order("RANDOM()").take subject.question_number
+    questions = subject.questions.where("questions.question_status = ?", 1)
+      .order("RANDOM()").take subject.question_number
     questions.each{|question| Result.create(question_id: question.id,
       examination_id: self.id)}
   end
@@ -35,4 +37,10 @@ class Examination < ActiveRecord::Base
     @exams = Examination.where(user_id: self.user.id)
     UserNotificationMailer.send_static_every_month(@exams, self.user).deliver
   end
+
+  def send_email_delay_examination
+    ExaminationMailer.notify_delay(self).deliver_now
+  end
+  handle_asynchronously :send_email_delay_examination,
+    run_at: Proc.new {8.hours.from_now}
 end

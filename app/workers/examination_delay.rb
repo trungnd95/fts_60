@@ -4,5 +4,5 @@ class ExaminationDelay
   end
 
   handle_asynchronously :send_email_delay_examination,
-    run_at: Proc.new {8.hours.from_now}
+    run_at: Proc.new {1.minute.from_now}
 end

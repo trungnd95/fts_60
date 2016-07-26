@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
   has_many :examinations, dependent: :destroy
   has_many :questions, dependent: :destroy
 
+  validates :name, presence: true
+  validates :email, presence: true, uniqueness: {case_sensitive: true}
+
   mount_uploader :avatar, PictureUploader
   validate  :picture_size
 

@@ -26,9 +26,16 @@ $(document).ready ->
       $('.choise_question').removeClass('hide')
       $('.add_fields').show()
     if question_type == 'single_choise' && question_type != 'multiple_choise'
-      $('#answer_field input[type=checkbox]').on 'change', ->
-        $('#answer_field input[type=checkbox]').not(this).prop('checked',false)
-        $('#answer_field input[type=checkbox]').prop('checked',true)
+      $('.answers_checkbox').each ->
+        $(this).prop("checked", false)
+  $(document).on 'click', '.answers_checkbox', ->
+    question_type = $('select[name="question[question_type]"]').val()
+    checkbox = this
+    if question_type == 'single_choise'
+      if checkbox.checked
+        $('.answers_checkbox').each ->
+          if checkbox != this
+            $(this).prop("checked", false)
   $('form.admin_new_question').on 'submit', (event) ->
     event.preventDefault()
     url = $(this).attr('action')
@@ -42,6 +49,7 @@ $(document).ready ->
       dataType: 'JSON'
       success: (result) ->
         $('.subject_body_tables').prepend(result.content)
+        $('form.admin_new_question').trigger('reset')
       error: (err) ->
         str = ''
         $.each jQuery.parseJSON(err.responseText), (i, item) ->
@@ -64,6 +72,7 @@ $(document).ready ->
       dataType: 'JSON'
       success: (result) ->
         $('#question_' + result.question_id).replaceWith(result.content)
+        $('form.edit_question').trigger('reset')
       error: (err) ->
         str = ''
         $.each jQuery.parseJSON(err.responseText), (i, item) ->

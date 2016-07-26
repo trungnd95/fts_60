@@ -43,6 +43,10 @@ gem "figaro"
 gem "sidekiq"
 gem "whenever", require: false
 gem "public_activity"
+gem "redis-rails"
+gem "sinatra", ">= 1.3.0", require: nil
+gem "public_activity"
+gem "whenever", require: false
 # bundle exec rake doc:rails generates the API under doc/api.
 gem "sdoc", "~> 0.4.0", group: :doc
 
@@ -60,6 +64,8 @@ gem "delayed_job_active_record"
 group :development, :test do
   # Call "byebug" anywhere in the code to stop execution and get a debugger console
   gem "byebug"
+  gem "letter_opener"
+  gem "launchy"
 end
 
 # group :development, :test do

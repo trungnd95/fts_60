@@ -52,7 +52,10 @@
     <div>
       <% @questions.each_with_index  do |question, index| %>
         <h6>
-          <strong><%= t "page.admin.questions.answers.answer" %><%= index %></strong>
+          <strong>
+            <%= t "page.admin.questions.answers.answer_of" %>
+            <%= question.content %>
+          <strong>
         </h6>
         <ul id="list-answers-<%= question.id %>" class="center-align">
           <% question.answers.each do |answer| %>
@@ -70,7 +73,7 @@
     <h5 class="center-align"><%= t "page.admin.questions.add.new" %></h5>
     <div class="divider"></div>
   </div>
-  <%= form_for([:admin, @question], class: "admin_new_question") do |f| %>
+  <%= form_for [:admin, @question], html: {class: "admin_new_question"} do |f| %>
     <div class="modal-content">
       <div class="row">
         <div class="input-field col s12">

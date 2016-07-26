@@ -7,7 +7,7 @@ class Admin::QuestionsController < ApplicationController
   def index
     if params[:suggest_question]
       @questions  = Question.includes([:subject, :answers])
-        .suggest.page(params[:page]).per Settings.per_page
+        .suggest.order(created_at: :desc).page(params[:page]).per Settings.per_page
       respond_to do |format|
         format.html do
           render template: "admin/questions/suggest_question"
@@ -16,7 +16,8 @@ class Admin::QuestionsController < ApplicationController
       end
     else
       @questions =  Question.includes([:subject, :answers])
-        .accepted_question.page(params[:page]).per Settings.per_page
+        .accepted_question.order(created_at: :desc)
+        .page(params[:page]).per Settings.per_page
       @question =  Question.new
       @question.answers.new
 

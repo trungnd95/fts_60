@@ -2,8 +2,12 @@
   <%= t "page.admin.subjects.title" %>
 <% end %>
 
+<%= content_for :page_title do %>
+  <%= t "page.admin.subjects.title" %>
+<% end %>
+
 <div class="row">
-  <%= link_to(new_admin_subject_path, class: "btn-floating btn-large waves-effect waves-light red tooltipped", data: {position: "top", delay: "50", tooltip: "Add new subject"}) do %>
+  <%= link_to(new_admin_subject_path, class: "btn-floating btn-large waves-effect waves-light red tooltipped add_new_subject", data: {position: "top", delay: "50", tooltip: "Add new subject"}) do %>
     <i class="material-icons">add</i>
   <% end %>
   <table class="striped centered highlight" id="table-subject">
@@ -32,10 +36,6 @@
     <tbody class="subject_body_tables">
       <% if @subjects.size > 0 %>
         <%= render "subject" %>
-      <% else %>
-        <tr>
-          <td colspan="5"><%= t "page.admin.subjects.tables.no-content" %></td>
-        </tr>
       <% end %>
     </tbody>
   </table>

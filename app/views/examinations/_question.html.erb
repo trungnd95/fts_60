@@ -1,9 +1,9 @@
-<div class="panel panel-default col m6 question_answers">
-  <span class="label label-default label-lg quesiton_number">
-    <%= t "page.front-end.lessons.do.question_num"%>
+<div class="panel panel-default col m6 questions_answers">
+  <label class="label-status label-default" style="display:block; font-size: 1.1em">
+    <%= t "page.front-end.examination.do.question_num"%>
     <%= f.index + 1 %>
-  </span><br/>
-  <label><%= f.object.question.content %>?</label>
+  </label><br/>
+  <p><strong><%= f.object.question.content %>?</strong></p>
   <div>
     <div class="answers">
       <% f.object.question.answers.each do |answer| %>
@@ -12,7 +12,9 @@
           <%= f.radio_button :answer_id, answer.id,
             checked: answer.id == f.object.answer_id %>
           <%= f.label :answer_id  %>
-          <%= answer.content %>
+          <span class="answer_content">
+            <%= answer.content %>
+          </span>
         </p>
       <% end %>
     </div>

@@ -18,12 +18,10 @@
       </p>
     </div>
     <%= form_for @examination do |f| %>
-      <ol>
-        <%= f.fields_for :results do |result| %>
-          <%= render "question", f: result %>
-        <% end %>
-      </ol>
-      <div class="col-md-2 col-md-offset-1">
+      <%= f.fields_for :results do |result| %>
+        <%= render "question", f: result %>
+      <% end %>
+      <div class="examination_buttons">
         <button type="submit" name="examination[status]"
           class="btn waves-effect waves-light green" value="testing">
           <%= t "page.front-end.examination.do.save" %>
@@ -38,12 +36,12 @@
     <%= form_for @examination do |f| %>
       <ol>
         <%= f.fields_for :results do |result| %>
-          <div class="panel panel-default col m6 question_answers">
-            <span class="label label-default label-lg quesiton_number">
-              <%= t "page.front-end.lessons.do.question_num"%>
+          <div class="panel panel-default col m6 questions_answers">
+            <span class="center-align label-status label-default label-lg quesiton_number" style="display:block; font-size: 1.1em">
+              <%= t "page.front-end.examination.do.question_num"%>
               <%= result.index + 1 %>
             </span><br/>
-            <label><%= result.object.question.content %>?</label>
+            <p><strong><%= result.object.question.content %>?</strong></p>
             <div>
               <div class="answers">
                 <% result.object.question.answers.each do |answer| %>
@@ -61,7 +59,9 @@
                       checked: answer.id == result.object.answer_id,
                       disabled: true %>
                     <%= result.label :answer_id  %>
-                    <%= answer.content %>
+                    <span class="answer_content">
+                      <%= answer.content %>
+                    </span>
                   </p>
                 <% end %>
               </div>

@@ -11,9 +11,6 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-div.container {
-  min-height: 420px !important;
-}
 // ===========================
 // ============ Header =======
 // ===========================
@@ -205,6 +202,7 @@ table {
 .clock_count_down {
   position: absolute;
   top: 170px;
+  left: 250px !important;
   height: 120px;
   width: 120px !important;
   border-radius: 50%;
@@ -214,4 +212,164 @@ table {
     top: 45px;
     left: 25px;
   }
+}
+
+.login-form {
+    width: 280px;
+}
+
+.heading-form {
+  margin-bottom: 20px;
+  .login_form_text {
+    letter-spacing: 2px;
+    font-size: 1.8rem;
+  }
+
+}
+
+.icon_form_auth {
+  top: 15px;
+}
+
+.remember_me {
+  margin-top: -20px;
+  .input-field {
+    margin-top: 0.7rem !important
+  }
+}
+
+.link_related {
+  div:first-child {
+    a {
+      margin-left: 20px;
+    }
+  }
+}
+
+.submit_button {
+  display: inline-block;
+  width: 49%
+}
+
+.label-status {
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 75%;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+}
+
+.label-default {
+  background-color: #777777;
+}
+
+.label-success {
+  background-color: #5cb85c;
+}
+
+.label-warning {
+  background-color: #f0ad4e;
+}
+
+.label-danger {
+  background-color: #d9534f;
+}
+
+.label-primary {
+  background-color: #428bca;
+}
+
+.questions_answers {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  height: 230px;
+  padding: 20px !important;
+  width: 47% !important;
+  margin-top: 10px;
+  margin-left: 10px !important;
+}
+
+.answers {
+  p {
+    label {
+      display: none !important;
+    }
+    span.answer_content {
+      display: inline-block;
+      margin-left: 10px
+    }
+  }
+}
+
+.examination_buttons {
+  button {
+    margin-top: 10px;
+  }
+
+  button:first-child {
+    margin-left: 50px;
+  }
+
+  button:nth-child(2) {
+   margin-right: 45px;
+  }
+}
+
+nav.pagination {
+  background: none !important;
+  color: #000 !important;
+  box-shadow: none !important;
+  a {
+    color: #039be5;
+  }
+}
+
+#table-log_filter {
+  display: none;
+}
+
+.admin_menu {
+  display: flex;
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 48px;
+  background-color: #fff;
+  margin: 0 auto;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.admin_menu {
+  .tab {
+    &:before {
+      content: ""
+    }
+    a {
+      color: #ee6e73;
+      display: block;
+      width: 100%;
+      height: 100%;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      transition: color .28s ease;
+    }
+  }
+}
+
+.active {
+
+}
+
+.add_new_subject {
+  margin-top: 40px;
+}
+
+.examination_buttons {
+  clear: both
 }

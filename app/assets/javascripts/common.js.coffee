@@ -6,6 +6,17 @@ $(document).ready ->
   $('#table-question').dataTable
     retrieve: true,
     paging: false
+  $('#table-examinations').dataTable
+    retrieve: true,
+    paging: false
+  $('#table-log').dataTable
+    paging: true
+  $('#table-user').dataTable
+    retrieve: true,
+    paging: false
+  $('#table-exams').dataTable
+    retrieve: true,
+    paging: false
   $('#user_avatar').bind 'change', ->
     size_in_megabytes = this.files[0].size/1024/1024
     if size_in_megabytes > 5
@@ -13,3 +24,6 @@ $(document).ready ->
   $('.exit_alert').on 'click', ->
     $(this).parent().slideUp('slow')
   $('select').material_select()
+  $('.alert').delay(2000).slideUp('slow')
+  $(document).on 'page:load', ->
+    $('.tooltipped').tooltip({delay: 50})

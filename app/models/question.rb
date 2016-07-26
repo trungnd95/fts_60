@@ -13,7 +13,8 @@ class Question < ActiveRecord::Base
 
   accepts_nested_attributes_for :answers, allow_destroy: true
 
-  validates :content, presence: true, length: {minimum: 2}
+  validates :content, presence: true, length: {minimum: 2},
+    uniqueness: {case_sensitive: true}
   validates :subject_id, presence: true
   validates_associated  :answers
   validate :validate_answers_if_choosen

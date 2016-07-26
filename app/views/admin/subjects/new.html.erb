@@ -1,9 +1,10 @@
-  <%= content_for :title do %>
-  <%= t "page.front-end.home-page.title" %>
+<%= content_for :title do %>
+  <%= t "page.admin.subjects.add.title" %>
 <% end %>
-<div class="row">
-  <h5 class="center-align"><%= t "page.admin.subjects.title" %></h5>
-</div>
+<%= content_for :page_title do %>
+  <%= t "page.admin.subjects.add.title" %>
+<% end %>
+
 <div class="row">
   <div class="col s6 offset-s3">
     <%= render "form" %>

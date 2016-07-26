@@ -3,6 +3,6 @@ class EmailResultWorker
 
   def perform exam_id
     exam = Examination.find exam_id
-    UserMailer.send_exam_result(exam).deliver
+    UserNotificationMailer.send_exam_result(exam).deliver
   end
 end

@@ -26,9 +26,9 @@ class ExaminationsController < ApplicationController
     @examination.end_time = Time.now.to_i
     if @examination.update_attributes examination_params
       redirect_to examinations_path
-      flash[:success] = t "category.lesson.save_success"
+      flash[:success] = t "page.front-end.examination.do.update.success"
     else
-      flash[:danger] = t "category.lesson.save_fail"
+      flash[:danger] = t "page.front-end.examination.do.update.fail"
       redirect_to :back
     end
   end

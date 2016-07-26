@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   root "static_pages#home"
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
   namespace :admin do
     resources :users, only: [:index, :destroy]
     resources :subjects

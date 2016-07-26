@@ -1,4 +1,11 @@
-<% provide :title, t("page.views.devise.examination.title") %>
+<%= content_for :title do %>
+  <%= t "page.front-end.examination.index.title" %>
+<% end %>
+
+<%= content_for :page_title do %>
+  <%= t "page.front-end.examination.index.title" %>
+<% end %>
+
 <%= form_for(@exam) do |f| %>
   <div class="row">
     <div class="input-field col s12">
@@ -13,15 +20,12 @@
         <%= f.hidden_field :user_id, value: current_user.id %>
       </div>
       <%= submit_tag t("page.views.devise.examination.view.index.create"),
-        class: "btn btn-md btn-primary" %>
+        class: "btn btn-md btn-primary pink" %>
     </div>
   </div>
 <% end %>
 <div class="row">
-  <div class="row_h4">
-    <h4><%= t "page.views.devise.examination.view.index.row" %></h4>
-  </div>
-  <table class="striped centered highlight" id="table-user">
+  <table class="striped centered highlight" id="table-examinations">
     <thead>
       <tr>
         <th data-field="stt">
@@ -45,15 +49,29 @@
         <th data-field="score">
           <%= t "page.views.devise.examination.view.index.score" %>
         </th>
-        <th data-field="score"></th>
+        <th data-field="action" class="center-align">
+          <%= t "page.admin.action.action" %>
+        </th>
       </tr>
     </thead>
-    <tbody class="user_body_tables">
+    <tbody>
       <% @examinations.each_with_index do |examination, index| %>
         <tr>
           <td><%= index+1 %></td>
           <td><%= examination.subject_name %></td>
-          <td><%= examination.status %></td>
+          <td>
+            <% if examination.status == "uncheck" %>
+              <label class="label-status label-danger">
+            <% elsif examination.status == "checked" %>
+              <label class="label-status label-success">
+            <% elsif examination.status == "start" %>
+              <label class="label-status label-primary">
+            <% else %>
+              <label class="label-status label-warning">
+            <% end %>
+              <%= examination.status %>
+            </label>
+          </td>
           <td><%= examination.subject_duration %></td>
           <td><%= examination.subject_question_number %></td>
           <td><%= spend_time examination %></td>
@@ -67,17 +85,18 @@
           </td>
           <td>
             <% if examination.start? %>
-              <%= link_to t("admin.exams.start"),
+              <%= link_to t("page.admin.exams.start"),
                 examination_path(examination),
-                class: "col-md-8 btn btn-primary" %></tdx`>
+                class: "waves-effect waves-light btn blue" %>
             <% else %>
-              <td><%= link_to t("admin.exams.view"),
+              <%= link_to t("page.admin.exams.view"),
                 examination_path(examination),
-                class: "col-md-8 btn btn-warning" %></td>
+                class: "waves-effect waves-light btn green" %>
             <% end %>
           </td>
         </tr>
       <% end %>
     </tbody>
   </table>
+  <%= paginate @examinations %>
 </div>

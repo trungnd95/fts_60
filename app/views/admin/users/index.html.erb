@@ -1,6 +1,11 @@
 <%= content_for :title do %>
   <%= t "page.admin.user.title" %>
 <% end %>
+
+<%= content_for :page_title do %>
+  <%= t "page.admin.user.title" %>
+<% end %>
+
 <div class="row">
   <table class="striped centered highlight" id="table-user">
     <thead>
@@ -13,6 +18,9 @@
         </th>
         <th data-field="email">
           <%= t "page.admin.users.email" %>
+        </th>
+        <th data-field="action">
+          <%= t "page.admin.action.action" %>
         </th>
       </tr>
     </thead>
@@ -37,4 +45,7 @@
   </table>
 <%= paginate @users %>
 </div>
-<%= render "log" if current_user.admin? %>
+<div class="divider"></div>
+<div class="row">
+  <%= render "log" if current_user.admin? %>
+</div>

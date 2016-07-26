@@ -20,25 +20,25 @@
   <% end %>
   <nav class="teal">
     <div class="nav-wrapper">
-      <a href="#!" class="brand-logo">
+      <a href="" class="brand-logo">
         <%= t "page.master.front-end.header.logo" %>
       </a>
       <ul class="right hide-on-med-and-down">
         <% unless user_signed_in? %>
-          <li><%= link_to t("page.master.front-end.header.signout"),
+          <li><%= link_to t("page.master.front-end.header.singup"),
             new_user_registration_path %>
           </li>
           <li><%= link_to t("page.master.front-end.header.signin"),
             new_user_session_path %>
           </li>
-          <li>
-          <%= link_to t("page.master.admin.header.signin"),
-            user_facebook_omniauth_authorize_path %>
-          </li>
         <% else %>
           <li>
             <%= link_to t("page.master.front-end.header.exam"),
               examinations_path %>
+          </li>
+          <li>
+            <%= link_to t("page.master.front-end.header.suggest_question"),
+              questions_path %>
           </li>
           <li>
             <a class="dropdown-button" href="#!" data-activates="current_user">

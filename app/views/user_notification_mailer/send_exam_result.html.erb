@@ -1,9 +1,9 @@
 <h2><%= t "page.admin.exams.email.result.hi" %><span><%= @user.name %></span></h2>
 <p><%= t "page.admin.exams.email.result.thank" %></p>
 <p>
-  <%= page.admin.exams.email.result.your_score %>
+  <%= t "page.admin.exams.email.result.your_score" %>
   <span class="score_exam">
-    <%= exam.results.is_corrects.count %> /
-    <%= exam.subject.question_number %>
+    <%= @exam.results.is_corrects.count %> /
+    <%= @exam.subject.question_number %>
   </span>
 </p>

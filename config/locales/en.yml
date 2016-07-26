@@ -17,6 +17,7 @@ en:
           profile: "Profile"
           setting: "Setting"
           exam: "Exam"
+          suggest_question: "Suggest Question"
         footer:
           connect:
             title: "Connect Us"
@@ -37,7 +38,7 @@ en:
           submit: "Resend confirmation instructions"
         passwords:
           edit: "Change your password"
-          new: "Forgot your password?"
+          new: "Forgot password?"
           submit: "Change my password"
           password: "New password"
           password_confirm: "Confirm new password"
@@ -59,15 +60,17 @@ en:
         shared:
           login: "Log in"
           signup: "Sign up"
-          password: "Forgot your password?"
+          password: "Forgot password?"
           confirm: "Did not receive confirmation instructions?"
           instruction: "Did not receive unlock instructions?"
           post: "Post"
         users:
+          show:
+            page_title: "User Profile"
           edit:
             page_title: "Edit User"
           submit: "Submit"
-          update: "you updated successful"
+          update: "Your profile was successfully updated!!!"
           title: "Edit User"
         models:
             user: "should be less than 5MB"
@@ -111,14 +114,14 @@ en:
         email:
           static:
             subject: "Static exams this month"
-            hi: "Hi"
+            hi: "Hi "
             thank: "Thanks for your enthusiasm during whole month!"
             content: "In this month, you had been finished %{exams} exams"
             exam: "Exam "
           result:
             subject: "Examination Score"
             hi: "Hi"
-            thank: "You are finished a exam on FTS 60"
+            thank: "You just finished a exam on FTS 60"
             your_core: "Your score is: "
         update:
           success: "You was successfully udpated!"
@@ -132,6 +135,8 @@ en:
           spent_time: "Spent Time"
           question_number: "Question Number"
           action: "Action"
+        start: "Start"
+        view: "View"
       action:
         check: "Check"
         accepted: "Accepted"
@@ -143,6 +148,7 @@ en:
         delete: "Delete"
         confirm: "Confirm"
         remove: "Remove"
+        action: "Action"
       no-content:
         title: "no-content"
         content: "No content was found !!!"
@@ -169,6 +175,12 @@ en:
           question_type: "Choose a question type"
         answers:
           answer: "Answer"
+          answer_of: "Answer of "
+          validate:
+            number_answers: "At least two answers!"
+            number_correct: "Please choose correct for answer"
+          tab:
+            title: "Answers"
         edit:
           title: "Edit Question"
           success: "Question was successfully edited!"
@@ -180,14 +192,7 @@ en:
         add_answer: "Add answer"
         select:
           default: "Choose a option"
-        answers:
-          answer: "Answer"
-          validate:
-            number_answers: "At least two answers!"
-            number_correct: "Please choose correct for answer"
-          answer: "Answer"
-          tab:
-            title: "Answers"
+
         title: "Manage Questions"
         suggest: "Manage Suggest Question"
         table:
@@ -198,6 +203,8 @@ en:
           action: "Action"
           no-content: "No question was found !"
       subjects:
+        add:
+          title: "Add Subject"
         destroy:
           fail: "Subject exist examinations. Not allow to delete this subject !"
           success: "Subject was successfully deleted"
@@ -230,7 +237,16 @@ en:
         back: "Back"
         success: "you deleted successful"
         default: "Error"
-
+      examinations:
+        tables:
+          time_create: "Time Created"
+          subject: "Subject"
+          status: "Status"
+          question_number: "Question Number"
+          duration: "Duration"
+          spent_time: "Spent Time"
+          score: "Score"
+          action: "Action"
     front-end:
       home-page:
         title: "Home Page"
@@ -247,7 +263,13 @@ en:
           status: "Status"
           action: "Action"
       examination:
+        index:
+          title: "Examinations"
         title: "Examination"
         do:
           save: "Save"
           finish: "Finish"
+          question_num: "Question "
+          update:
+            success: "Exam was successfully updated"
+            fail: "Something went wrong! Exam wasn't updated !"

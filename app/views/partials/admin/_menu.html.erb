@@ -1,24 +1,21 @@
 <div class="row">
   <div class="col s12">
-    <ul class="tabs" >
+    <ul class="admin_menu" >
       <li class="tab col s2 menu_admin">
-        <a href="#users" >
-          <%= t "page.admin.menu.users" %>
-        </a>
+        <%= link_to t("page.admin.menu.users"), admin_users_path %>
       </li>
       <li class="tab col s2 menu_admin">
-        <a href="#subjects" url="<%= admin_subjects_path %>" >
-          <%= t "page.admin.menu.subjects" %>
-        </a>
+        <%= link_to t("page.admin.menu.subjects"), admin_subjects_path %>
       </li>
       <li class="tab col s2 menu_admin">
-        <a href="#questions"><%= t "page.admin.menu.questions" %></a>
+        <%= link_to t("page.admin.menu.questions"), admin_questions_path %>
       </li>
       <li class="tab col s2 menu_admin">
-        <a href="#suggestions"><%= t "page.admin.menu.suggestions" %></a>
+        <%= link_to t("page.admin.menu.suggestions"), controller: "admin/questions",
+          action: "index", suggest_question: 1 %>
       </li>
       <li class="tab col s2 menu_admin">
-        <a href="#exams"><%= t "page.admin.menu.exams" %></a>
+        <%= link_to t("page.admin.menu.exams"), admin_examinations_path %>
       </li>
     </ul>
   </div>
